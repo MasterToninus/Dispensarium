@@ -1355,6 +1355,63 @@ i.e. such that each fiber is in the form $E_p = T^k_l \big(T_p M) \big) $.
 \end{notationfix}
 
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+\subsection{Phase Space}
+
+	\begin{notationfix}
+In the context of Classical mechanics is customary to refer to the cotangent bundle $T^*Q$ over the smooth manifold  $Q $ - called \emph{Configuration Space}  - as \emph{Phase Space}.\cite{}
+	\end{notationfix}
+	Since $TQ$ and $T^*Q$ are diffeomorphic , it might seem that there is no particular reason in treating this two spaces separately, but it is not so.
+	There are certain geometrical objects that live naturally on $T^*Q$ , not on $TQ$.
+	Of greatest interest in mathematical-physics are the Poincarè forms\cite{Fraenkel}.
+	
+	Consider a smooth manifold $Q$ and call $M=T^*Q$ the correponding cotangent bundle.
+	\begin{definition}[Tautological (Poincarè) 1-form]
+		Is the 1-form over $M$:
+		\begin{displaymath}
+			\theta_0 \in \Gamma^\infty (T^*M)
+		\end{displaymath}
+		such that the action on a generic point $ \omega_{\alpha_p} \in T_{\alpha_p}M$ ( in the fiber of $\alpha_p$, which in turn is a one-form on the fiber of $p\in Q$) is given by:
+		\begin{displaymath}
+			\theta_0 \big(\alpha_p \big): T_{\alpha_p}M \rightarrow \Real \qquad : \; \omega_{\alpha_p} \mapsto \alpha_q \circ T \tau^*_Q \big( \omega_{\alpha_p} \big)
+		\end{displaymath}
+			\footnote{For a slightly different formulation see : \cite{fraenkel} \cite{fomm} \href{https://en.wikipedia.org/wiki/Tautological_one-form}{wiki}}
+	\end{definition}
+	\begin{figure}[h!]
+   		\includegraphics[width=0.5\textwidth]{Pictures/Tautological1Form} 
+ 		\caption{The definition of tautological 1-form is achieved exploiting the concept of \emph{Tangent map} and remembering that $\alpha_p: T_p M\rightarrow M$ is a linear functional.} 
+  		\centering
+	\end{figure}
+	
+	\begin{proposition}[Coordinate Representation of $\theta_0$]
+	\end{proposiotion}
+	
+	
+	\begin{proposition}[Canonical symplectic form]
+
+			$d \theta_0$ is a symplectic 2-form on $M$.
+	\end{proposition}
+	\begin{proof}
+	
+	\end{proof}
+	
+		As a mathematical curiosity, we note that the cotangent bundle of any manifold is orientable. Indeed, it carries a symplectic structure and hence a volume element.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 \newpage
