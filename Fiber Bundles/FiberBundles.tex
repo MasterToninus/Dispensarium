@@ -15,6 +15,9 @@
 \maketitle
 
 
+
+
+
 %  Indice
 \tableofcontents
 
@@ -67,7 +70,7 @@ In this extremely simple case the sets $E_{p} =\pi^{-1}(p)$ take the role of fib
 In what follows all the set considered are endowed with a topological structure that is are topological space  $(X,\textrm(top)(X))$.
 \end{remark}
 
-\begin{definition}[Fiber Bundle]
+\begin{definition}[Fiber Bundle]\label{Def:FiberBundle}
 A \emph{Fiber Bundle} consists in a 4-ple $(E,B,\pi,F)$ where:
 \begin{itemize}
 \item[-] $E$ : topological space (called \emph{Total Space})
@@ -143,15 +146,41 @@ In conclusion $\chi \vert _{E_{p}}$ realizes an homemorphism between $F$ and $E_
 
 
 \begin{notationfix}
-It's customary to refer to the fiber bundle $(E,B,\pi,F)$ indicating only his total space $E$.
+It's customary to refer to the fiber bundle $(E,\pi,M ; Q)$ indicating only its total space $E$:
+\begin{displaymath}
+	\gls{Bundle}%E= ( E,\pi, B ; F)
+\end{displaymath}
 
-A possible, more heavy, convention is to denote the fiber bundle as a \emph{short sequence}
-$$ F \rightarrow E \xrightarrow{\pi} B$$
+A possible, more heavy, convention is to denote the fiber bundle as a \emph{short sequence}\cite{•}
+$$ Q \rightarrow E \xrightarrow{\pi} M$$
 \end{notationfix}
 
+\begin{notationfix}
+	\danger(da correggere)\\
+	We say that a fiber bundle $E$ is \emph{(globally) trivial} if there exists a fiber preserving diffeomorphism from $E$ to the Cartesian product $M×Q$ which is a vector space isomorphism on each fiber. 
+	In practice, this corresponds to a trivialization of $E$ which is defined everywhere, to be compared with the notion of a local trivialization per Definition \ref{Def:FiberBundle}. 
+\end{notationfix}
 
-\subsection{Cross Section}
-The notion of bundle is particular interesting from the perspective of physicist because provides the rigorous description of a $F-$valued field on a space $B$.
+Given two bundle $E$ and $F$ on the same base $M$, it's straightforward the definition of some additional structures just performing the algebraic operations fiberwise:
+\begin{definition}[Bundle Restriction]
+	See  \cite{advances}.
+\end{definition}
+\danger : definizione ripetuta!
+\begin{definition}[Cartesian Product Bundle]
+	Fiber bundle $E \times_M F$ over $M$ such that :
+	\begin{displaymath}
+		(E \times_M F )_p = E_p \times F_p
+	\end{displaymath}
+	\footnote{for every point $p\in M$ , we take the tensor product of the fibers, $E_p \times E'_p$.}
+\end{definition}
+
+\begin{Warning}
+	List pagg 9 \cite{primer}
+\end{Warning}
+
+
+\subsection{Cross Sections}
+The notion of bundle is particularly interesting from the perspective of physics because provides the rigorous description of a $F-$valued field on the space $B$.
 
 \begin{definition}[(Cross) Section]
 Function $\phi : B \rightarrow E$ such that:
@@ -205,7 +234,7 @@ The preceding argument give meaning to the claim often presented in geometry boo
 
 \begin{notationfix}
 The \emph{set of all section} is often denoted as:
-$$\Gamma(\pi_B) $$
+$$\gls{Sections} $$
 \end{notationfix}
 
 \subsection{Maps between Fiber Bundles}
@@ -257,11 +286,11 @@ $$ $$
 			\end{itemize}
 	\end{hypothesis}
 	\begin{thesis}
-				The couple ( C, hom(C)) form a concrete category.
+		The couple ( C, hom(C)) form a concrete category.
 	\end{thesis}
 \end{proposition}
 \begin{proof}
-Technicality (...).
+	Technicality (...).
 \end{proof}
 
 \begin{observation}
@@ -342,6 +371,56 @@ f^* s = s \cdot f \in \Gamma(f^* E)
 \end{displaymath}
 
 \end{observation}
+
+	\begin{Warning}
+	(Advances)\\
+	It is also noteworthy that, given any two vector bundles $F =F(M,\pi,V)$ and $F' =F'(M,\pi',V')$, we can construct naturally a third fiber bundle, the bundle of morphisms $Mor(F,F')$ over the base space $M$. 
+	Its fiber over a base point $p\in M$ is $Mor(F_p,F'_p)$, which is a vector space isomorphic to the vector space Hom(V,V?) of homomorphism fromV toV?. If F? =F, then
+we shall write End(F) for Hom(F,F?) and call it bundle of endomorphism, whose typical fiber is End(V).
+	\end{Warning}
+
+\subsection{Toward other type of bundle.}
+Roughly speaking a fiber bundle is an agglomerate of fiber space over a different space called base. Fiber and Base could have different structure, a sort of compatibility between structure is guaranteed by the properties of $\pi$ and $\chi$.
+Category theory provides the appropriate language to treat various bundle structure in a unified way.
+
+Consider two construct $\mathbf{C}_{1}$ , $\mathbf{C}_{2}$ subcategory of $\mathbf{Top}$, concrete category of all topological spaces \footnote{Set of the object must be considered together with a cartesian product operator $\times : \textrm{obj} \times \textrm{obj} \rightarrow \textrm{obj}$.}, such that:
+\begin{displaymath}
+\mathbf{Top} \supseteq \mathbf{C}_{1} \subseteq \mathbf{C}_{2}
+\end{displaymath}
+
+\begin{definition}[$(\mathbf{C}_{1})-$Bundle of $(\mathbf{C}_{2})-$fiber]\label{CategoryBundle}
+It's a 4-ple $(E,M,\pi,F)$ where:
+\begin{itemize}
+\item[-] $E, M \in \Obj(\mathbf{C}_{1})$ : (called \emph{Total Space} and \emph{Base Space})
+\item[-] $F \in \Obj(\mathbf{C}_{2})$ : (called \emph{Typical Fiber})
+\item[-] $\pi \in \hom(E,B) \subset \Mor(\mathbf{C}_{1})$ : (called \emph{Bundle Projection})
+\end{itemize}
+Such that:
+\begin{itemize}
+\item $\pi$ surjective.
+\item $\pi^{-1} (p) \in \Obj(\mathbf{C}_{2}) \quad \forall p \in M $
+\item $\forall p \in M \; \exists (\chi,U)$ (local trivialization) such that:
+	\begin{itemize}
+	\item $U$ is a neighbourhood of $p$
+	\item $\chi \in \iso(E,U\times F)\subset \Iso(\mathbf{C}_{1})$
+	\item $\chi \vert_{\pi^{-1}(p)} \in \iso(\pi^{-1}(p),\{p\}\times F)\subset \Iso(\mathbf{C}_{2}) $
+	\end{itemize}
+\end{itemize}
+\end{definition}
+the main categories of interest are the following:
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Category & Obj & Mor & Iso \\ 
+\hline 
+$\mathbf{Top}$ & topological spaces & continuous functions & homeomorphism \\ 
+$\mathbf{Smooth}$ & smooth manifold & differentiable functions & diffeomorphism \\ 
+$\mathbf{GLie}$ & Lie groups & homomorphism & group isomorphism \\ 
+$\mathbf{Vec}$ & Vector spaces & linear operators & $\mathbb{GL}-$operators \\ 
+\hline 
+\end{tabular} 
+
+
 
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 \newpage
@@ -507,46 +586,7 @@ A such action permit a complete identification of $F$ with the group $G$.
 For this reason is common place in the literature to present this further structured bundles as fiber bundle where the typical fiber $F$ is endowed with a Lie group structure and such that the local trivialization functions are Lie group isomorphism when restricted on a fiber.
 \end{observation}
 
-\subsection{Toward other type of bundle.}
-Roughly speaking a fiber bundle is an agglomerate of fiber space over a different space called base. Fiber and Base could have different structure, a sort of compatibility between structure is guaranteed by the properties of $\pi$ and $\chi$.
-Category theory provides the appropriate language to treat various bundle structure in a unified way.
 
-Consider two construct $\mathbf{C}_{1}$ , $\mathbf{C}_{2}$ subcategory of $\mathbf{Top}$, concrete category of all topological spaces \footnote{Set of the object must be considered together with a cartesian product operator $\times : \textrm{obj} \times \textrm{obj} \rightarrow \textrm{obj}$.}, such that:
-\begin{displaymath}
-\mathbf{Top} \supseteq \mathbf{C}_{1} \subseteq \mathbf{C}_{2}
-\end{displaymath}
-
-\begin{definition}[$(\mathbf{C}_{1})-$Bundle of $(\mathbf{C}_{2})-$fiber]\label{CategoryBundle}
-It's a 4-ple $(E,M,\pi,F)$ where:
-\begin{itemize}
-\item[-] $E, M \in \textrm{obj}(\mathbf{C}_{1})$ : (called \emph{Total Space} and \emph{Base Space})
-\item[-] $F \in \textrm{obj}(\mathbf{C}_{2})$ : (called \emph{Typical Fiber})
-\item[-] $\pi \in \textrm{mor}(E,B) \subset \textrm{Mor}(\mathbf{C}_{1})$ : (called \emph{Bundle Projection})
-\end{itemize}
-Such that:
-\begin{itemize}
-\item $\pi$ surjective.
-\item $\pi^{-1} (p) \in \textrm{obj}(\mathbf{C}_{2}) \quad \forall p \in M $
-\item $\forall p \in M \; \exists (\chi,U)$ (local trivialization) such that:
-	\begin{itemize}
-	\item $U$ is a neighbourhood of $p$
-	\item $\chi \in \textrm{iso}(E,U\times F)\subset \textrm{Iso}(\mathbf{C}_{1})$
-	\item $\chi \vert_{\pi^{-1}(p)} \in \textrm{iso}(\pi^{-1}(p),\{p\}\times F)\subset \textrm{Iso}(\mathbf{C}_{2}) $
-	\end{itemize}
-\end{itemize}
-\end{definition}
-the main categories of interest are as follows:
-
-\begin{tabular}{|c|c|c|c|}
-\hline 
-Category & Obj & Mor & Iso \\ 
-\hline 
-$\mathbf{Top}$ & topological spaces & continuous functions & homeomorphism \\ 
-$\mathbf{Smooth}$ & smooth manifold & differentiable functions & diffeomorphism \\ 
-$\mathbf{GLie}$ & Lie groups & homomorphism & group isomorphism \\ 
-$\mathbf{Vec}$ & Vector spaces & linear operators & $\mathbb{GL}-$operators \\ 
-\hline 
-\end{tabular} 
 
 
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -953,7 +993,7 @@ Giving a local reference is equivalent to give a bundle atlas
 	\end{displaymath}
 	\begin{itemize}
 	\item[-] $\xi$ is bijective, follows from the definition of reference.
-	\item[-] $xi$ is smooth from linearity in $w^i$ variable and smoothness of section in $p$ variable. 
+	\item[-] $\xi$ is smooth from linearity in $w^i$ variable and smoothness of section in $p$ variable. 
 	\item[-] follows from the definition that $\chi := \xi^{-1}$ trivializes E.
 	\item[-] Smoothness of $\chi$ follows from the following argument:
 		\\ Consider a second local trivialization $\tilde{\chi}$ on $U$ and call $\{ \tilde{\sigma_1}, \ldots, \tilde{\sigma_r} \} $ the associated local reference.	
@@ -1383,7 +1423,7 @@ In the context of Classical mechanics is customary to refer to the cotangent bun
 	\end{figure}
 	
 	\begin{proposition}[Coordinate Representation of $\theta_0$]
-	\end{proposiotion}
+	\end{proposition}
 	
 	
 	\begin{proposition}[Canonical symplectic form]
@@ -1494,6 +1534,7 @@ Per capitoli
 		 \item Considerazioni sul vector bundle.Che vuol dire in parole provere fissare un punto sul fibrato.
 		 \item (da wiki VB) esempi: trivial bundle, moebius strip
 		 \item (da wiki VB) accenno ai banach bundle
+		 \item Nell'ottica della quantizzazione è necessario parlare  del bundle innerproduct
 	\end{itemize}
 
 \item TB
@@ -1552,6 +1593,10 @@ Possibili fonti da considerare:
 \bibitem{fomm} Ralph Abraham and Jerrold E. Marsden -  \emph{Foundations of Mechanics}.
 
 \bibitem{fraenkel} Theodore Frankel -  \emph{The geometry of Physics}.
+
+\bibitem{advances} Benini, M. and Dappiaggi, C. in Advances in AQFT 1–49
+
+\bibitem{primer} Benini, M., Dappiaggi, C. and Hack, T.-P. Quantum Field Theory on Curved Backgrounds — a Primer. Int. J. Mod. Phys. A 28, 1330023 (2013).
 
 \end{thebibliography}
 

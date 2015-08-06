@@ -40,8 +40,33 @@
 
 
 %Common symbols
-\input{../CommonSymbols.tex}
+\input{../../Math-Symbols-List/CommonSymbols.tex}
 
 %% Warning: use the ../ because the source including these files are in the upper folder! :D
 %Temporaneo, Aggiunta della mia classe teorem... Deve diventare un pacchetto! 
 \input{../../Latex-Theorem/TheoremTemplateToninus.tex}
+
+%  Glossario
+\usepackage{glossaries}
+
+\makenoidxglossaries
+
+%How to:
+%affinchè la voce venga printata nella lista va prima chiamata nel testo come e.g. \gls{Bundle}
+%ricordarsi di chiamarlo almeno una volta così, dopo usare il command per evitare il ripetuto hyperref
+% anche se si potrebbe evitare visto che il quadratino del link non dovrebbe apparire in stampa
+
+%Advanced Differential Geometry
+\newglossaryentry{Bundle}%
+{%
+	name={\ensuremath{E = (E,\pi , M;Q)}},
+	description={ Fiber Bundles $\pi: E\rightarrow M$ with typical fiber $Q$},
+    sort={B}
+}
+
+\newglossaryentry{Sections}%
+{%
+	name={\ensuremath{\Gamma^\infty(E)}},
+	description={ Smooth sections on the bundle $E$.},
+    sort={S}
+}
