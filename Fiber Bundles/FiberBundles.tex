@@ -1502,7 +1502,7 @@ In the context of Classical mechanics is customary to refer to the cotangent bun
 Since the tangent bundle $TM$ is itself a smooth manifold, the second-order tangent bundle can be defined via repeated application of the tangent bundle construction:
 
 $$T^2 M = T(TM)$$
-In general, the k-th order tangent bundle $T^k M$ can be defined recursively as $T(T^{k-1}M)$.
+In general, the k-th order tangent bundle $T^k M$ can be defined recursively as $T (T^{k-1}M) $.
 
 A smooth map $f : M \rightarrow N$ has an induced derivative, for which the tangent bundle is the appropriate domain and range $Df : TM \rightarrow TN$. 
 Similarly, higher-order tangent bundles provide the domain and range for higher-order derivatives $D^k f : T^k M \mapsto T^k N$.
@@ -1511,46 +1511,61 @@ A distinct but related construction are the jet bundles on a manifold, which are
 	\end{Warning}
 
 \section{Jet Bundles}
-The jet bundle is a certain construction that makes a new smooth fiber bundle out of a given smooth fiber bundle.
+The jet bundle is a certain construction that makes a new smooth fiber bundle out of a given smooth fiber bundle. The first step is to identify the typical fiber for this construction.
 
-	The first step is to define the fiber of this new construction.
-	Suppose M is an m-dimensional manifold and that (E, π, M) is a fiber bundle.
-	
-	Consider the set of all the local sections whose domain contains $p$
+Suppose $M$ is an m-dimensional manifold and that $(E, \pi, M)$ is a fiber bundle.Consider the set of all the local sections whose domain contains $p$:
 	\begin{displaymath}
 		\Gamma^\infty (p) \coloneqq \big\{ \sigma \in \Gamma^\infty(E) \quad \big\vert\:  p \in \dom(\sigma)  \big\}
 	\end{displaymath}
-	two such section $\sigma, \eta \in \Gamma^\infty(p)$ have the \underline{same \emph{r-jet} at $p$} iff:
+
+We define an equivalence relation between such section \emph{up to r-th order}:
+	\begin{definition}[r-jet equivalence]
+	Two such section $\sigma, \eta \in \Gamma^\infty(p)$ have the \underline{same \emph{r-jet} at $p$} $(\sigma \sim \eta)$ iff:
 	\begin{displaymath}
-		\left.\frac{\partial^{|I|} \sigma^{\alpha}}{\partial x^{I}}\right|_{p} = \left.\frac{\partial^{|I|} \eta^{\alpha}}{\partial x^{I}}\right|_{p}, \quad 0 \leq |I| \leq r.
-	\end{displaymath}
-	where $I={i_1, i_2, \ldots, i_m}$ is a \emph{Multi-index}.
-	\begin{notationfix}
-		\begin{displaymath}
-			|I| := \sum_{i=1}^{m} I(i)
-		\end{displaymath}
+		\left.\frac{\partial^{|I|} \sigma^{\alpha}}{\partial x^{I}}\right|_{p} = \left.\frac{\partial^{|I|} \eta^{\alpha}}{\partial x^{I}}\right|_{p} \quad \forall I\in \Natural^m_0 \, \vert \, 0 \leq |I| \leq r.
+	\end{displaymath}	
+	where $I$ is a \emph{Multi-index}.	
+	\end{definition}
+	\begin{remark}
+	(multi-index notation)
+	\\
+	A multi-index is a natural valued finite dimensional vector  $I=(i_1, i_2, \ldots, i_m)\: \in \Natural^m_0$ with $m<\infty$.
+	\\
+	On $\Real^n$ a general differential operator can be identified by a multi-index:
 		\begin{displaymath}
 			\frac{\partial^{|I|}}{\partial x^{I}} := \prod_{i=1}^{m} \left( \frac{\partial}{\partial x^{i}} \right)^{I(i)}
 		\end{displaymath}
-	\end{notationfix}
+	(Until the Schwartz theorem holds, the order of derivation is irrelevant.)
+	\\
+	The order of the multi-index is defined as:
+		\begin{displaymath}
+			|I| := \sum_{i=1}^{m} I(i)
+		\end{displaymath}
+	\end{remark}
 	
-	We define the \emph{r-th Jet} as the equivalence class under this relation.
+	We define the \emph{r-th Jet in p} as the equivalence class under this relation.
+	\begin{definition}[Space of r-th Jet in p]
+		\begin{displaymath}
+			J^r_{\,p}(E) \coloneqq \frac{\Gamma^\infty(p)}{\sim}
+		\end{displaymath}
+		where $\sim$ is the r-Jet equivalence.
+	\end{definition}
 	\begin{notationfix} 
-		r-jet with representative σ is denoted $j^r_p\sigma$ . 
-		The integer r is also called the order of the jet, p is its source and σ(p) is its target.
+		A r-jet with representative $\sigma$ is denoted as $j^r_p\sigma$ . 
+		\\
+		The integer $r$ is also called the order of the jet, $p$ is its source and $\sigma(p)$ is its target.
 	\end{notationfix}
 	
-	We define the jet fiber $J^r_p (E)$ on the point $p$ as the set of the equivalence classes:
-	
+	Glueing all the jet fiber $J^r_p (E)$ together for all the base point $p\in M$, as done for the tangent bundle,  we obtain the desired bundle:
 	\begin{definition}[r-th Jet Bundle of $E$]
 		The triple $(J^r(E), \pi_r, M)$	where:
 		\begin{itemize}
-			\item $J^r(E) \coloneqq \big\{j^r_p\sigma \quad \vert \; p\in M, \; \sigma \in \Gamma^\infty(p) \big\}$
+			\item $J^r(E) \coloneqq \underset{p \in M}{\sqcup} J^r_p (E)
+				 \equiv \big\{j^r_p\sigma \quad \vert \; p\in M, \; \sigma \in \Gamma^\infty(p) \big\}$
 			\item $\pi_r: J^r(E) \rightarrow M$ such that $j^{r}_{p}\sigma \mapsto p $
 		\end{itemize}
 	\end{definition}
-	
-	\begin{propostion}
+	\begin{proposition}
 		$ J^r(E) = (J^r(E), \pi_r, M)$ is a smooth bundle.
 	\end{proposition}
 
