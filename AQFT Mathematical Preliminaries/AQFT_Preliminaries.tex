@@ -20,6 +20,7 @@
 		(sono ripetizioni inutili per la tesi, sono informazioni che si ritrovano ovunque... sono informazioni adatte al "knowledge base")
 \end{abstract}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Globally Hyperbolic SpaceTimes}
 	Recurring definitions in general Relativity (excluding the general smooth manifold prolegomena).
@@ -46,14 +47,15 @@
 	\end{definition}
 	
 	\begin{notationfix}
+		A Pseudo-riemmanian manifold $(M,g)$ is called:
 		 \begin{itemize}
-		 	\item \emph{Riemman} if the sign of $g$ is positive definite, \emph{Pseudo-Riemman} otherwise.
+		 	\item \emph{Riemmanian} if the sign of $g$ is positive definite.%, \emph{Pseudo-Riemman} otherwise.
 		 	\item \emph{Lorentzian} if the signature is $(+, -, \ldots,- )$ or equivalently $(-,+,\ldots,+)$.
 		 \end{itemize}
 	\end{notationfix}
 
 	\begin{observation}[Causal Structure]
-		If a smooth manifold is endowed with a Lorentzian manifold of signature $(+, -, \ldots, -)$ then the tangent vectors at each point in the manifold can be classed into three different types. 
+		If a smooth manifold is endowed with a Lorentzian metric of signature $(+, -, \ldots, -)$ then the tangent vectors at each point in the manifold can be classed into three different types. 
 		\begin{notationfix}
 			$\forall p \in M, \quad \forall X \in T_pM$, the vector is:
 			\begin{itemize}
@@ -69,7 +71,9 @@
 		\begin{displaymath}
 			X \sim Y \; \textrm{iff} \; g(X,Y)>0 \qquad \forall X,Y \in T^\textrm{time-like}_pM:
 		\end{displaymath}
-		We can (arbitrarily) call one of these equivalence classes "future-directed" and call the other "past-directed". Physically this designation of the two classes of future- and past-directed timelike vectors corresponds to a choice of an arrow of time at the point. The future- and past-directed designations can be extended to null vectors at a point by continuity.
+		We can (arbitrarily) call one of these equivalence classes "future-directed" and call the other "past-directed". Physically this designation of the two classes of future- and past-directed timelike vectors corresponds to a choice of an arrow of time at the point. 
+		\\
+		The future- and past-directed designations can be extended to null vectors at a point by continuity.
 	\end{observation}
 	
 	\begin{definition}[Time-orientation]
@@ -142,6 +146,28 @@
 		\end{itemize}
 	\end{definition}
 
+	The term "hypersurface" is not used by chance:	
+	\begin{proposition}
+		Every Cauchy surface $\Sigma$ is a three dimensional, embedded, $C^0$ submanifold of $M$
+	\end{proposition}
+	\begin{proof}
+		See Wald (general relativity) teo 8.3.1
+	\end{proof}
+	
+
+		\begin{Warning}
+		\danger copiato da \cite{primer}
+		From a physical point of view, we are interested in those spacetimes which allow to set a well-posed
+initial value problem for hyperbolic partial differential equations, such as the scalar D’Alambert wave equation, to quote the simplest, yet most important example. In particular we need to ensure that the spacetime we consider possesses at least one distinguished codimension 1 hypersurface on which we can assign the initial data needed to construct a solution of such an equation.	
+		\end{Warning}	
+		
+		\begin{definition}[Globally-Hyperbolic SpaceTime]
+		 Spacetime $M$ such that there exists at least one \emph{Cauchy Surface}
+		\end{definition}
+		
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Linear Differential Operator}
 Basic Definition in L.P.D.O. on smooth vector sections.
 \\
@@ -197,5 +223,21 @@ Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with
 	However the existence and uniqueness can be proved for the large class of the \emph{Normally-Hyperbolic Operators}.
 	
 	\end{observation}
+
+		\begin{Warning}
+		(ADVANCES)\\
+		Globally hyperbolic spacetimes play a pivotal role, not only because they do not allow for pathological situations, such as closed causal curves, but also because they are the natural playground for classical and quantum fields on curved backgrounds. More precisely, the dynamics of most (if not all) models, we are interested in, is either ruled by or closely related to wave-like equations. Also motivated by physics, we want to construct the associated space of solutions by solving an initial value problem. To this end we need to be able to select both an hypersurface on which to assign initial data and to identify an evolution direction. In view of Theorem 1, globally hyperbolic spacetimes appear to be indeed a natural choice. Goal of this section will be to summarize the main definitions and the key properties of the class of partial differential equations, useful to discuss the models that we shall introduce in the next sections. Since this is an overkilled topic, we do not wish to make any claim of being complete and we recommend to an interested reader to consult more specialized books and papers for more details.
+		\end{Warning}
+		
+%-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+%-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+\begin{thebibliography}{100}
+
+\bibitem{advances} Benini, M. and Dappiaggi, C. in Advances in AQFT 1–49
+
+\bibitem{primer} Benini, M., Dappiaggi, C. and Hack, T.-P. Quantum Field Theory on Curved Backgrounds — a Primer. Int. J. Mod. Phys. A 28, 1330023 (2013).
+
+\end{thebibliography}		
+
 
 \end{document}
