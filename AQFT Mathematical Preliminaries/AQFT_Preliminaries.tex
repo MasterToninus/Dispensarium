@@ -25,7 +25,7 @@
 \section{Globally Hyperbolic SpaceTimes}
 	Recurring definitions in general Relativity (excluding the general smooth manifold prolegomena).
 
-	\begin{definition}[Space-Time]
+	\begin{definition}[SpaceTime]
 		A quadruple $(M, g, \mathfrak{o}, \mathfrak{t})$ such that:
 		\begin{itemize}
 			\item $(M,g)$ is a time-orientable n-dimensional manifold $(n>2)$
@@ -134,7 +134,7 @@
 	\end{definition}
 
 	\begin{notationfix}
-		$\mathbf{D}_M(\Sigma)  \coloneq \mathbf{D}_M^+(\Sigma) \cup \mathbf{D}_M^-(\Sigma)$ is called \emph{total domain of dependence}.
+		$\mathbf{D}_M(\Sigma)  \coloneqq \mathbf{D}_M^+(\Sigma) \cup \mathbf{D}_M^-(\Sigma)$ is called \emph{total domain of dependence}.
 	\end{notationfix}
 
 	\begin{definition}[Cauchy Surface]
@@ -161,12 +161,59 @@
 initial value problem for hyperbolic partial differential equations, such as the scalar D’Alambert wave equation, to quote the simplest, yet most important example. In particular we need to ensure that the spacetime we consider possesses at least one distinguished codimension 1 hypersurface on which we can assign the initial data needed to construct a solution of such an equation.	
 		\end{Warning}	
 		
-		\begin{definition}[Globally-Hyperbolic SpaceTime]
-		 Spacetime $M$ such that there exists at least one \emph{Cauchy Surface}
+		\begin{definition}[Globally-Hyperbolic SpaceTime]\label{Def:GHSP}
+			 Spacetime $M$ such that there exists at least one \emph{Cauchy Surface}
 		\end{definition}
 		
+		According to Definition \ref{Def:GHSP}, only the existence of a single Cauchy hypersurface is guaranteed. 
+		This is slightly disturbing since there is no reason a priori why an initial value hypersurface for a certain partial differential equation should be distinguished. 
+		This quandary has been overcome proving that, if a spacetime $(M,g)$ is globally hyperbolic, then there exists a foliation of $M$ by Cauchy surfaces:
+		
+			\begin{theorem}[Globally hyperbolic  space characterization]\label{Teo:GHSC_character}
+				Let $(M,g)$ be any time-oriented spacetime. The following two statements are equivalent:
+				\begin{itemize}
+					\item $(M,g)$ is globally hyperbolic.
+					\item $(M,g)$ is isometric to $ \Real \times \Sigma $ 
+						endowed with the line element $ds^2 = \beta dt^2 - h_t$ 
+						where $t : \Real \times \sigma \rightarrow \Real$ is the projection on the first factor, 
+						$\beta$ is a smooth and strictly positive function on $\Real \times \Sigma$ 
+						and $t \mapsto h_t , t \in \Real$, yields a one-parameter family of smooth Riemmanian metrics.\\
+						Furthermore, for all $t\in \Real$, $\{t\}\times \Sigma$ is an (n−1)-dimensional, spacelike, smooth Cauchy surface in M.
+				\end{itemize}
+			\end{theorem}
+			\begin{proof}
+				Teo 3.17 in J. K. Beem, P. E. Ehrlich and K. L. Easley, Global Lorentzian Geometry.
+				\\
+				section 1.3 in \cite{barwav}
+			\end{proof}
 
-
+		To conclude this section, we introduce some terms which will be often used in the following in order to
+specify the support properties of the sections of a vector bundle with base a globally hyperbolic spacetime.
+		\begin{notationfix}
+		Let $M$ be a globally hyperbolic spacetime and $E=(E,\pi,M;V)$ a vector bundle of typical fiber $V$.
+		We denote:
+		\begin{itemize}
+			\item $\Gamma_0(E)$ the space of \emph{compactly supported} smooth sections.
+			\item $\Gamma_{sc}(E)$  the space of \emph{spacelike compact} smooth sections.\\
+				$\big(\; f\in \Gamma_{sc}(E)$ if there exists a compact subset $K \subset M$  such that $\supp f \subset \mathbf{J}_M(K)$. $\big)$
+			\item  $\Gamma_{fc}(E) $ the space of \emph{future- compact} smooth sections.\\
+				$\big(\; f\in \Gamma_{fc}(E) $ if  $\supp(f) \cap  \mathbf{J}^+_M(K)$ is compact for all $p\in M$.$\big)$
+			\item  $\Gamma_{pc}(E) $ the space of \emph{past- compact} smooth sections.\\
+				$\big(\; f\in \Gamma_{pc}(E) $ if  $\supp(f) \cap  \mathbf{J}^-_M(K)$ is compact for all $p\in M$.$\big)$
+			\item $\Gamma_{tc}(E) \coloneqq \Gamma_{pc}(E) \cap \Gamma_{fc}(E) $ the space of \emph{timelike compact} smooth sections.
+		\end{itemize}
+		\end{notationfix}
+		
+		This class of manifolds includes most of the physically interesting examples, e.g.: Minkowski spacetimes, Friedman-Robertson-Walker solutions, Kerr family. \cite{advances}
+					
+			A trivial example:		
+			\begin{example}
+				Trivially, the real line $\Real$ is a globally hyperbolic manifold.
+				\\
+				Each point $x\in \Real$ represent a proper Cauchy surfaces which realize the trivial foliation $\Real \simeq 1\times \Real $ required by theorem \ref{Teo:GHSC_character}
+			\end{example}
+		
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Linear Differential Operator}
 Basic Definition in L.P.D.O. on smooth vector sections.
@@ -226,7 +273,11 @@ Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with
 
 		\begin{Warning}
 		(ADVANCES)\\
-		Globally hyperbolic spacetimes play a pivotal role, not only because they do not allow for pathological situations, such as closed causal curves, but also because they are the natural playground for classical and quantum fields on curved backgrounds. More precisely, the dynamics of most (if not all) models, we are interested in, is either ruled by or closely related to wave-like equations. Also motivated by physics, we want to construct the associated space of solutions by solving an initial value problem. To this end we need to be able to select both an hypersurface on which to assign initial data and to identify an evolution direction. In view of Theorem 1, globally hyperbolic spacetimes appear to be indeed a natural choice. Goal of this section will be to summarize the main definitions and the key properties of the class of partial differential equations, useful to discuss the models that we shall introduce in the next sections. Since this is an overkilled topic, we do not wish to make any claim of being complete and we recommend to an interested reader to consult more specialized books and papers for more details.
+		Globally hyperbolic spacetimes play a pivotal role, not only because they do not allow for pathological situations, such as closed causal curves, but also because they are the natural playground for classical and quantum fields on curved backgrounds. 
+		More precisely, the dynamics of most (if not all) models, we are interested in, is either ruled by or closely related to wave-like equations. Also motivated by physics, we want to construct the associated space of solutions by solving an initial value problem. 
+		To this end we need to be able to select both an hypersurface on which to assign initial data and to identify an evolution direction. In view of Theorem 1, globally hyperbolic spacetimes appear to be indeed a natural choice. 
+		Goal of this section will be to summarize the main definitions and the key properties of the class of partial differential equations, useful to discuss the models that we shall introduce in the next sections. 
+		Since this is an overkilled topic, we do not wish to make any claim of being complete and we recommend to an interested reader to consult more specialized books and papers for more details.
 		\end{Warning}
 		
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -236,6 +287,8 @@ Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with
 \bibitem{advances} Benini, M. and Dappiaggi, C. in Advances in AQFT 1–49
 
 \bibitem{primer} Benini, M., Dappiaggi, C. and Hack, T.-P. Quantum Field Theory on Curved Backgrounds — a Primer. Int. J. Mod. Phys. A 28, 1330023 (2013).
+
+\bibitem{barwav} Bar, C., Ginoux, N. and Pfaeffle, F. Wave Equations on Lorentzian Manifolds and Quantization. (2008).
 
 \end{thebibliography}		
 
