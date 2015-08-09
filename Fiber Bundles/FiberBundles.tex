@@ -8,8 +8,8 @@
 \begin{document}
 
 %  Titolo
-	\title{Capitolo 1: (versione preliminari)}
-	\subtitle{An excursus on Bundle}
+	\title{An excursus on Bundles}
+	%\subtitle{^_^}
 	\author{Tony}
 	\date{\today}
 \maketitle
@@ -80,7 +80,7 @@ A \emph{Fiber Bundle} consists in a 4-ple $(E,B,\pi,F)$ where:
 \end{itemize}
 Endowed with a \emph{Local Trivialization}:
 \begin{itemize}
-\item $\forall x \in E$ $\exists$ a couple $(U, \chi)$ (called \emph{local trivialization})
+\item $\forall x \in B$ $\exists$ a couple $(U, \chi)$ (called \emph{local trivialization})
 \begin{itemize}
 \item $U$ : neighborhood of $x$
 \item $\chi$ :$\pi^{-1}(U) \rightarrow U \times F$ : homeomorphism
@@ -157,9 +157,12 @@ $$ Q \rightarrow E \xrightarrow{\pi} M$$
 
 \begin{notationfix}
 	\danger(da correggere)\\
-	We say that a fiber bundle $E$ is \emph{(globally) trivial} if there exists a fiber preserving diffeomorphism from $E$ to the Cartesian product $M×Q$ which is a vector space isomorphism on each fiber. 
-	In practice, this corresponds to a trivialization of $E$ which is defined everywhere, to be compared with the notion of a local trivialization per Definition \ref{Def:FiberBundle}. 
+	We say that a fiber bundle $E$ is \emph{(globally) trivial} if there exists a fiber preserving diffeomorphism from $E$ to the Cartesian product $M×Q$ which is a homeomorphism on each fiber. (  i.e there exists a trivialization of $E$ which is defined everywhere.)
+	\\
+	Note that definition \ref{Def:FiberBundle} prescribes the existence of local trivializations only.
 \end{notationfix}
+
+
 
 Given two bundle $E$ and $F$ on the same base $M$, it's straightforward the definition of some additional structures just performing the algebraic operations fiberwise:
 \begin{definition}[Bundle Restriction]
@@ -1182,7 +1185,42 @@ Extending pointwise the local properties from $T_pM$ to $\Gamma(\pi_M)$ follows 
 	\end{itemize}
 \end{observation}
 
+\subsection{Natural Pairing}
+If $E$ is a vector bundle over M and $E^*$ is its dual vector bundle, the fiberwise natural pairing between $V^∗$ and $V$ has an integral counterpart:
+\begin{definition}[Natural pairing]\label{Def:NaturalPairing}
+	Mapping $< \cdot , \cdot > : \Gamma(E^*) \times \Gamma(E) \rightarrow \Real$ such that:
+		\begin{displaymath}
+			< f' , f > \coloneqq  \int_M f' \big( f \big) dvol_M
+		\end{displaymath}
 
+\end{definition}
+\begin{observation}
+	Note that the natural pairing is well-defined only if $f\in \Gamma(E)$ and $f' \in \Gamma(E^*)$ have supports with compact overlap.
+\end{observation}
+\begin{observation}
+Notice that the formula above provides non-degenerate bilinear pairings between $\Gamma_0(E^*)$ and	 $\Gamma(E)$ and between $\Gamma_0(E)$ and	 $\Gamma(E^*)$.
+\end{observation}
+
+See \cite{bar}[cap 2.4] for a detailed account of the duality condition.
+
+\subsection{Vector Bundle Inner Product}
+Consider a vector bundle $E=(E,\pi,M;V)$ 
+\begin{definition}[Inner product on $E$]\label{Def:BundleInnerProd}
+	The smooth map $\cdot: E \times_M E \rightarrow \Real$ such that:\\
+	$\forall p\in M$ the restriction of $\cdot$ on each fiber $E_p \times E_p$ is:
+	\begin{itemize}
+		\item  is a Bilinilinear form.
+		\item is non-degenrate: $v\cdot w = 0 ; \forall w \in E_p \quad \Leftrightarrow \quad v=0$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[Inner Pairing]\label{Def:InnerPairing}
+	see (1) in advances
+\end{definition}
+
+\begin{observation}
+	Notice that, if $E$ is endowed with a non-degenerate inner product as per Definition \ref{Def:BundleInnerProd}, then we can identify $E$ with$E^*$. Via this identification the natural pairing becomes the inner pairing.
+\end{observation}
 
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 \newpage

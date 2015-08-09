@@ -18,6 +18,9 @@
 
 \begin{abstract}
 		(sono ripetizioni inutili per la tesi, sono informazioni che si ritrovano ovunque... sono informazioni adatte al "knowledge base")
+		
+		Fin qui ho basato tutto sugli articoli del mio relatore: \cite{primer}\cite{advances} 
+		Molte fonti estendono questi temi dal punto di vista matematico, e.g \cite{bar}
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -218,59 +221,6 @@ specify the support properties of the sections of a vector bundle with base a gl
 \section{Linear Differential Operator}
 Basic Definition in L.P.D.O. on smooth vector sections.
 \\
-Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with different typical fiber
-	\begin{definition}[Linear Partial Differential operator \footnotesize( of order at most $s\in \Natural_0$)]
-		Linear map $L:\Gamma(F)\rightarrow \Gamma(F')$ such that:
-		\\
-		$\forall p \in M$ exists:
-		\begin{itemize}
-			\item $(U, \phi)$ local chart on $M$.
-			\item $(U, \chi)$ local trivialization of $F$
-			\item $(U, \chi')$ local trivialization of $F'$
-		\end{itemize}
-		for which:
-		\begin{displaymath}
-			L \big(\sigma \big\vert_U\big) = \sum_{\vert \alpha \vert \leq s} A_\alpha \partial^\alpha \sigma \qquad \forall \sigma \in \Gamma(M)
-		\end{displaymath}
-	\end{definition}
-
-	\begin{remark}
-	(multi-index notation)
-	\\
-	A multi-index is a natural valued finite dimensional vector $\alpha = ( \alpha_0, \ldots, \alpha_n-1) \in \Natural^n_0$ with $n<\infty$.
-	\\
-	On $\Real^n$ a general differential operator can be identified by a multi-index:
-	\begin{displaymath}
-		\partial^\alpha = \prod_{\mu = 0}^{n-1} \partial_\mu ^{\alpha_\mu}
-	\end{displaymath}
-	(Until the Schwartz theorem holds, the order of derivation is irrelevant.)
-	\\
-	The order of the multi-index is defined as:
-	\begin{displaymath}
-		\vert \alpha \vert \coloneqq \sum_{\mu=0}^{n-1} \alpha_\mu
-	\end{displaymath}
-	\end{remark}
-
-	?????????????????????
-	\begin{proposition}[Existence and uniqueness for the Cauchy Problem]
-		\begin{hypothesis}
-			\begin{itemize}
-				\item $\mathbf{M} = (M,g,\mathfrak{o},\mathfrak{t}) $a globally hyperbolic space-time.
-				\item $\Sigma \subset M$ a spacelike cauchy surface with future-pointing unit normal vector field $\vec{n}$.
-				\item 
-			\end{itemize}
-		\end{hypothesis}
-	\begin{thesis}
-
-	\end{thesis}
-	\end{proposition}
-	\begin{observation}
-	"Green-hyperbolic operators are not necessarily hyperbolic in any PDE-sense and that they cannot be characterized in general by well-posedness of a Cauchy problem.	" \cite{Terlaky2010} \cite{Bar2010}
-	\\
-	However the existence and uniqueness can be proved for the large class of the \emph{Normally-Hyperbolic Operators}.
-	
-	\end{observation}
-
 		\begin{Warning}
 		(ADVANCES)\\
 		Globally hyperbolic spacetimes play a pivotal role, not only because they do not allow for pathological situations, such as closed causal curves, but also because they are the natural playground for classical and quantum fields on curved backgrounds. 
@@ -279,6 +229,282 @@ Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with
 		Goal of this section will be to summarize the main definitions and the key properties of the class of partial differential equations, useful to discuss the models that we shall introduce in the next sections. 
 		Since this is an overkilled topic, we do not wish to make any claim of being complete and we recommend to an interested reader to consult more specialized books and papers for more details.
 		\end{Warning}
+
+	\subsection{L.P.D.O}
+		Consider $E=(E,\pi,M;V), E'=(E',\pi',M;V')$ two linear vector bundle over $M$ (with different typical fiber), we define:
+		\begin{definition}[Linear Partial Differential operator \footnotesize( of order at most $s\in \Natural_0$)]\label{Def:LPDO}
+			Linear map $L:\Gamma(E)\rightarrow \Gamma(E')$ such that $\forall p \in M$ exists:
+		\begin{itemize}
+			%\item open set $U \ni p$.
+			%\item $(U, \varphi )$ local chart on $M$.
+			%\item $(U, \chi)$ local trivialization of $F$
+			%\item $(U, \chi')$ local trivialization of $F'$
+			\item $U \ni p$ open set rigged with:
+				\begin{itemize}
+					\item $(U, \varphi )$ local chart on $M$.
+					\item $(U, \chi)$ local trivialization of $F$
+					\item $(U, \chi')$ local trivialization of $F'$
+				\end{itemize}
+			\item $\{A_\alpha :U \rightarrow \Hom(V,V')\; \vert \: \alpha \in \Natural_0^n, \vert \alpha \vert \leq s \}$ collection of smooth maps labeled by multi-indices.
+		\end{itemize}
+		which allows to express $L$ locally:
+		\begin{displaymath}
+			\chi' \circ ( L \sigma) \circ \varphi^{-1} =
+			\sum_{\vert \alpha \vert \leq s} A_\alpha \partial^\alpha (\chi \circ \sigma \circ \varphi^{-1} ) 
+			\qquad \forall \sigma \in \dom(L) \subset \Gamma(E)
+		\end{displaymath}
+	\end{definition}
+	
+		\begin{notationfix}
+			Using implicitly the coordinate charts \cite{advances}:
+			\begin{displaymath}
+				L \big(\sigma \big\vert_U\big) = \sum_{\vert \alpha \vert \leq s} A_\alpha \partial^\alpha \sigma \qquad \forall \sigma \in \Gamma(E)
+			\end{displaymath}
+		\end{notationfix}
+		\begin{remark}
+			(multi-index notation)
+			\\
+			A multi-index is a natural valued finite dimensional vector $\alpha = ( \alpha_0, \ldots, \alpha_n-1) \in \Natural^n_0$ with $n<\infty$.
+			\\
+			On $\Real^n$ a general differential operator can be identified by a multi-index:
+			\begin{displaymath}
+				\partial^\alpha = \prod_{\mu = 0}^{n-1} \partial_\mu ^{\alpha_\mu}
+			\end{displaymath}
+			(Until the Schwartz theorem holds, the order of derivation is irrelevant.)
+			\\
+			The order of the multi-index is defined as:
+			\begin{displaymath}
+				\vert \alpha \vert \coloneqq \sum_{\mu=0}^{n-1} \alpha_\mu
+			\end{displaymath}
+		\end{remark}
+	
+		\begin{observation}
+			Notice that linear partial differential operators cannot enlarge the support of a section.
+		\end{observation}		
+		
+		
+		\begin{notationfix}
+			We say that $L$ is exactly of order $k$ if it is of order at most $k$, but not of order at most $k-1$.
+		\end{notationfix}
+		\begin{observation}
+			Notice that, as a consequence of their definition, linear partial differential operators cannot enlarge the
+support of a section.
+		\end{observation}
+		
+		Definition \ref{Def:LPDO} accounts for a large class of operators, most of which are not typically used in the framework of field theory, especially because they cannot be associated to an initial value problem. 
+		In order to select a relevant subset we introduce a useful concept ( see also \cite{barwav}[pag 172]).
+		
+		Consider a Linear differential operator $L: \Gamma(E) \rightarrow \Gamma(E')$:
+		\begin{definition}[Principal Symbol]
+		 	The map $\sigma_L: T^*M \rightarrow \Hom(E,E') $locally defined as follows: \\
+		 	For a given $p\in M$, consider a coordinate chart $(U, x^i)$ around $p$ and local trivializations of $E$ and of $E'$ (as precribed in Definition \ref{Def:LPDO}).
+		 	\\ 
+		 	For all $\xi = \xi_i dx^i \in T^*_pM$ set:
+		 	\begin{displaymath}
+		 		\sigma_L \big(\xi \big) = \sum_{|\alpha|=s}  \xi^\alpha A_\alpha (p) 
+		 	\end{displaymath}
+		 	where $ \xi^\alpha = \prod_{\mu=0}^{m-1} \xi^{\alpha_\mu}$
+		 \end{definition}
+		
+		Remembering the definition of Natural pairing (see \cite{TonyBundles}) we can define a dual operator of a L.P.D.O. $L: \Gamma(E) \rightarrow \Gamma(G)$:
+		\begin{definition}[Formal Dual Operator]
+			Linear partial differential operator $L^\star: \Gamma(G^*) \rightarrow \Gamma(E^*)$ such that:
+			\begin{displaymath}
+				<L^\star g' , f > = <g', L f> 
+			\end{displaymath}
+			$\forall f\in \Gamma(E),\; g' \in \Gamma(G^*)$ which have supports with compact overlap.
+		\end{definition}
+		\begin{proposition}
+			$\forall P $ linear partial differential operator, $\exists1! P^\dagger$.
+		\end{proposition}
+		
+		Similarly , in presence of a bundle inner product $g: E\otimes_M E \rightarrow \Real$ and h respectively on $E$ and $G$, can be defined an adjoint operator through the dual space isomorphism:
+		\begin{definition}[Formal Adjoint Operator]
+			Linear partial differential operator $L^\dagger : \Gamma(G) \rightarrow \Gamma(E)$ such that:
+			\begin{displaymath}
+				g(L^\dagger g ,f)  = h(g , L f)
+			\end{displaymath}
+			$\forall f\in \Gamma(E), g \in \Gamma(G)$ with compact supports intersection.		
+		\end{definition}		
+		
+		\begin{notationfix}
+			In presence of an inner product $g$ , denote $f^*=g(f, \cdot)	\in \Gamma^*(E)$ the dual section associated to $f \in \Gamma(E)$ through $g$.
+			Obviously:
+			\begin{displaymath}
+				<f^*, f'> \equiv g(f,f')
+			\end{displaymath}
+		\end{notationfix}
+		
+		\begin{notationfix}
+			$L:\Gamma(E) \rightarrow \Gamma(E)$ is \emph{self-adjoint} whenever $L^\dagger = L$.
+		\end{notationfix}
+				
+	\subsection{Green Operators}
+		\begin{NB}
+			From now on we will consider only bundles with globally-hyperbolic spacetime base.
+		\end{NB}	
+		Let $M$ be a globally hyperbolic spacetime, consider a vector bundle $E$ over $M$ and a L.p.d.o. $L: \Gamma(E) \rightarrow \Gamma(E)$:
+		\begin{definition}[$\substack{\textrm{ retarded}\\ \textrm{advanced } } (\pm)$ Green Operators]
+			L.p.d.o. $G^\pm : \Gamma (E) \rightarrow \Gamma(E)$ such that:
+			\begin{itemize}
+			\item $\dom(G^+) = \Gamma_{pc}(E) \qquad \dom(G^-) = \gamma_{fc}(E)$
+			\item $LG^\pm f=G^\pm Lf = f \qquad \forall f\in \dom(G^\pm)$
+			\item $\supp(G^\pm f) \subset \mathbf{J}^\pm_M (\supp(f)) \qquad \forall f\in \dom(G^\pm)$
+			\end{itemize}
+		\end{definition}
+		\begin{definition}[ Advanced $(-)$ Green Operator of $L$]
+			L.p.d.o. $G^- : \Gamma_{fc} (E) \rightarrow \Gamma(E)$ such that:
+			\begin{itemize}
+			\item $\dom(G^-) = \Gamma_{fc}(E)$
+			\item $LG^-f=G^-Lf = f \qquad \forall f\in \Gamma_{fc}(E)$
+			\item $\supp(G^- f) \subset \mathbf{J}^-_M (\supp(f)) \qquad \forall f\in \Gamma_{fc}(E)$
+			\end{itemize}
+		\end{definition}
+		\begin{definition}[ Retarded $(+)$ Green Operator of $L$]
+			L.p.d.o. $G^+ : \Gamma_{pc} (E) \rightarrow \Gamma(E)$ such that:
+			\begin{itemize}
+			\item $\dom(G^+) = \Gamma_{pc}(E)$
+			\item $LG^+f=G^+Lf = f \qquad \forall f\in \Gamma_{pc}(E)$
+			\item $\supp(G^+ f) \subset \mathbf{J}^+_M (\supp(f)) \qquad \forall f\in \Gamma_{pc}(E)$
+			\end{itemize}
+		\end{definition}
+		\begin{observation}
+			From the definition follows that $G^\pm$ is the left-right inverse of the restriction of $L$ to $\dom(G^\pm)$.
+		\end{observation}
+
+
+		
+		\begin{notationfix}
+			We refer to the operator:
+			\begin{displaymath}
+				E \coloneqq G^-  - G^+ : \Gamma_{tc}(E) \rightarrow \Gamma(E)
+			\end{displaymath}
+			as the \emph{Advanced minus Retarded operator} or \emph{Causal Propagator}\cite{primer}.
+		\end{notationfix}		
+		
+		Green operators are not necessarily unique. For this we introduce the following definition:
+		\begin{definition}[Green hyperbolic operator]
+			The linear partial differential operator $P$ is be called Green hyperbolic if $P$ and $P^\star$ have advanced and retarded Green’s operators.
+		\end{definition}
+		for such operators uniqueness of Green's operator comes from free:
+		\begin{theorem}[Characterization of Green Hyperbolic operators]
+			\begin{hypothesis}
+				\item $E=(E,\pi,M)$ a vector bundles over a globally hyperbolic spacetime $M$.
+				\item $P:\Gamma(E) \rightarrow \Gamma(E)$ a green hyperbolic operator, $G^\pm$ its Green's operators and $G_\star^\pm$ the Green's operators of the dual.
+			\end{hypothesis}		
+			\begin{thesis}
+				\item $L$ posses an unique retarded $\GreenRet$ and advanced $\GreenAdv$ green operator.
+				\item $<G_\star^\pm f', f> = <f', G^\mp f > \qquad \forall f \in \Gamma_0(E),\: \forall f' \in \Gamma_0(E^*)$
+			\end{thesis}
+		\end{theorem}
+		\begin{proof}
+			see \cite{advances}[proposition 2]
+		\end{proof}
+		
+		The same result can be obtained considering the pairing induced by an inner product:
+		\begin{corollary}
+			see \cite{advances}[Lemma 1]
+		\end{corollary}
+		From that follows:
+		\begin{corollary}
+			If $L$ is Green hyperbolic and self-adjoint, then:
+			\begin{itemize}
+				\item $\exists 1 ! \; G^\pm$ Green's operators of $L$
+				\item $(G^\pm)^\dagger = G^\mp$
+			\end{itemize}
+		\end{corollary}
+
+	\subsection{Cauchy problem and Solution Space}
+		The globally-hyperbolic condition property of the base manifold $M$ is what allows to define \emph{Cauchy problems} associated to a linear partial differential operator $P:\Gamma(E) \rightarrow \Gamma(E)$:
+		\begin{remark}
+			For every cauchy surface $\Sigma \subset M$, for each couple $(u_0, u_1) \in \Gamma(\Sigma) \times \Gamma(\Sigma)$ we can state a \emph{Cauchy Problem}:
+			\begin{equation}\label{CauchyProblem}
+				\begin{cases} P u = 0 \\ u = u_0 \\ \nabla_{\vec{n}}u= u_1 \end{cases}
+			\end{equation}
+			(Someties we refer to $P u = 0$ as \emph{Wave equation} of $u\in \Gamma(E)$.)
+		\end{remark}
+		\begin{definition}[PDE-hyperbolic operator]
+			L.d.p.o. $P$ such that exists an unique solution for every Cauchy problem \ref{CauchyProblem}
+		\end{definition}
+
+	\begin{observation}
+	"Green-hyperbolic operators are not necessarily hyperbolic in any PDE-sense and that they cannot be characterized in general by well-posedness of a Cauchy problem.	" \cite{Terlaky2010} \cite{Bar2010}
+	\\
+	However the existence and uniqueness can be proved for the large class of the \emph{Normally-Hyperbolic Operators}.
+	\end{observation}
+
+	\subsection{Normally Hyperbolic Operators}
+		Is a class of L:P.D.O. hyperbolic in both PDE and Green sense.
+		Given a Lorentzian manifold $(M,g)$ and two vector bundles $E=(E,\pi,M;V), E'=(E',\pi',M;V')$,
+		\begin{definition}[Normally Hyperbolic Operators]
+			Second order linear partial differential operator $P:\Gamma(E)\rightarrow \Gamma(E')$ such that:
+			\begin{displaymath}
+				\sigma_P(\xi) = g(\xi,\xi) \IdOp_{E_p} \qquad \forall p\in M, \xi \in T^*_pM
+			\end{displaymath}
+		\end{definition}
+		
+		\begin{observation}%In coordinate questi operatori hanno un'espressione molto familiare ...
+			Making explicit the coordinate expression of a normally hyperbolic operator $P$ , one realizes how such operators  provide the natural generalization of the usual Wave operator. 
+			\\
+			Consider a globally hyperbolic operator $P$ for all $p \in M$ a trivializing chart $(U, \varphi, \chi)$ centered in $p$. 
+			There exist a collection $\big\{A, A^\mu \vert \mu\in \{0, \ldots ,m-1\}\big\}$ of smooth 
+			$\Hom(V,V)-$valued maps on $U$ such that, $P$ reas as follows:
+			\begin{displaymath}
+				\chi \circ ( P \sigma) \circ \varphi^{-1} =
+				\big( g^{\mu \nu} \IdMap_V \partial\mu \partial_nu + A^\mu \partial_\mu + A\big)
+				(\chi \circ \sigma \circ \varphi^{-1} ) 
+				\qquad \forall \sigma \in \dom(P) \subset \Gamma(E)
+			\end{displaymath}
+		where both the chart and the vector bundle trivializations are understood. 
+		One immediately notices that locally this expression agrees up to terms of lower order in the derivatives with the one for the d'Alembert operator acting on sections of $E$  constructed out of a covariant derivative $\nabla$ on $E$, that is the operator:
+		\begin{displaymath}
+			\square_\nabla = g^{\mu \nu} \nabla_\mu \nabla_\nu : \Gamma(E) \rightarrow \Gamma(E)
+		\end{displaymath}
+		\end{observation}
+		This definition becomes even more important if we assume, moreover, that the underlying background is globally hyperbolic, since we can associate to each normally hyperbolic operator P an initial value problem and talk about Green's operator.
+		\begin{proposition}[Green operators]
+			Be $P$ normally hyperbolic operator, then:
+			\begin{itemize}
+				\item	$P^\star$ is a normally hyperbolic operator.
+				\item $P$ is Green hyperbolic.
+			\end{itemize}
+		\end{proposition}	
+		\begin{proof}
+			\cite{barwav}[Corollary 3.4.3]
+		\end{proof}
+		
+	\begin{proposition}[Existence and uniqueness for the Cauchy Problem]
+	$ $
+		\begin{hypothesis}
+			\begin{itemize}
+				\item $E=(E,\pi,M;V)$ a vector bundle on $M = (M,g,\mathfrak{o},\mathfrak{t}) $, globally hyperbolic spacetime.
+				\item $\Sigma \subset M$ a spacelike Cauchy surface with future-pointing unit normal vector field $\vec{n}$.
+				\item $P$ a normally hyperbolic operator and $\nabla$ a P-compatible\footnote{There existss a section $A \in \Gamma(\textrm{End}(E))$ such that $\square_\nabla + A = P$.} covariant derivative on $E$
+			\end{itemize}
+		\end{hypothesis}
+	\begin{thesis}
+		\begin{itemize}
+			\item The Cauchy problem;
+				\begin{displaymath}
+					\begin{cases} 
+						P u = J & \textrm{on $M$} \\ 
+						u = u_0 & \textrm{on $\Sigma$}\\ 
+						\nabla_{\vec{n}}u= u_1  & \textrm{on $\Sigma$}
+					\end{cases}
+				\end{displaymath}
+				admit a unique solution $u\in \Gamma(E)$ for any $J\in \Gamma(E)$ and $ u_0,u_1 \in \Gamma(\Sigma)$
+			\item $\supp(U) \subset \mathbf{J}_M \big( \supp(u_0) \cup \supp(u_0) \cup \supp(J) \big)$
+		\end{itemize}
+	\end{thesis}
+	\end{proposition}	
+	\begin{proof}
+		The proof of this proposition has been given in different forms in several books, \cite{barwav}6, 26] and in [3, Corollary 5]. Notice that equation (2) is not linear since we
+	\end{proof}
+		
+	\subsection{Continuity}
+		(...) see  p.15-16 \cite{primer}
+
+
 		
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -289,6 +515,12 @@ Consider $F=F(M,\pi,V), F'=F'(M,\pi',V')$ two linear vector bundle over $M$ with
 \bibitem{primer} Benini, M., Dappiaggi, C. and Hack, T.-P. Quantum Field Theory on Curved Backgrounds — a Primer. Int. J. Mod. Phys. A 28, 1330023 (2013).
 
 \bibitem{barwav} Bar, C., Ginoux, N. and Pfaeffle, F. Wave Equations on Lorentzian Manifolds and Quantization. (2008).
+
+\bibitem{bar}  Bar, C. Green-hyperbolic operators on globally hyperbolic spacetimes. 1–26 (2010).
+
+\bibitem{barconcepts}
+
+\bibitem{TonyBundles}  Toninus, P. An Excursus on Bundles. at \url{https://github.com/MasterToninus/Dispensarium/blob/master/Fiber Bundles/FiberBundles.pdf}
 
 \end{thebibliography}		
 
