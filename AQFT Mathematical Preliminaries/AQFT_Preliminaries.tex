@@ -25,7 +25,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 \section{Globally Hyperbolic SpaceTimes}
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 	Recurring definitions in general Relativity (excluding the general smooth manifold prolegomena).
 
 	\begin{definition}[SpaceTime]
@@ -216,9 +218,11 @@ specify the support properties of the sections of a vector bundle with base a gl
 				Each point $x\in \Real$ represent a proper Cauchy surfaces which realize the trivial foliation $\Real \simeq 1\times \Real $ required by theorem \ref{Teo:GHSC_character}
 			\end{example}
 		
-		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 \section{Linear Differential Operator}
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 Basic Definition in L.P.D.O. on smooth vector sections.
 \\
 		\begin{Warning}
@@ -505,9 +509,58 @@ support of a section.
 		(...) see  p.15-16 \cite{primer}
 
 
+\newpage
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+\section{*-Algebras}
+%\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+			\begin{definition}[Algebra over a field]
+				A pair $\big( (V,\KField), \cdot )$ which consists of a vector space over field $\KField$ and a multiplication operator $\cdot: V \times V \rightarrow V$ such that:
+				\begin{enumerate}
+					\item is bilinear.
+					\item satisfies left/right distributivity :
+						\begin{displaymath}
+							(x+y) \cdot z = x \cdot z +y \cdot z \qquad x \cdot (y+z) = x \cdot y +x \cdot z \qquad \forall x,y,z \in V
+						\end{displaymath}			
+					\item is scalar compatible:	
+						\begin{displaymath}
+							(\alpha x) \cdot (\beta y) = (\alpha \beta) x \cdot y \qquad \forall \alpha,\beta \in \KField \; \forall x,y \in V
+						\end{displaymath}						 
+				\end{enumerate}		
+			\end{definition}		
+
+			\begin{definition}[Unital Algebra (over a field)]
+				Algebra $(V,\cdot)$ over field $\KField$ such that:
+				\begin{enumerate}
+					\item $\exists \IdOp \in V$ such that $\IdOp \cdot u = u \cdot \IdOp = u \qquad \forall u \in V$
+					\item associativity:
+						\begin{displaymath}
+							v \cdot ( w \cdot u) = (v \cdot w)\cdot u = v \cdot w \cdot u \qquad \forall u,v,w \in V
+						\end{displaymath}
+				\end{enumerate}
+			\end{definition}		
+
+			\begin{definition}[Algebra (over a field) generate by a subspace $W\subset V$]
+				Is an Algebra $(V,\cdot)$ over field $\KField$ such that each elements of $V$ can be obtained as a polynomial in the elements of $W$:
+				\begin{displaymath}
+					V = \textrm{span}\big\{\prod_i W_i \big\vert \{w_i\} \subset W \big\}
+				\end{displaymath}
+			\end{definition}		
+			
+			\begin{definition}[*-algebra over a field]
+				Triple $\big( (V,\KField), \cdot, *\big)$ where $\big((V,\KField), \cdot\big)$ constitutes an unital algebra over field $\KField$ and $*:V\rightarrow V$ is an \emph{involutive} map :
+				\begin{enumerate}
+					\item $ (\alpha x + y)^* = \bar{\alpha} x^* + y^* \qquad \forall \alpha \in \KField, \; \forall x,y \in V$
+					\item $(x \cdot y)^* = y^* \cdot x^* \forall x,y \in V$
+					\item $\IdOp^* = \IdOp$
+					\item $ (x^*)^* = x \qquad \forall x \in V$
+				\end{enumerate}	
+			\end{definition}
+
 		
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+\newpage
 \begin{thebibliography}{100}
 
 \bibitem{advances} Benini, M. and Dappiaggi, C. in Advances in AQFT 1–49
