@@ -13,7 +13,7 @@ A collection of preliminary notes and prelogmena to which i couldn't devote spac
 * Uniformare la notazione e i simboli ricorrenti (vedere glossary in masterthesis
 
 ##TODO AQFT preliminaries
-* ?
+* *-algebras
 
 ## Requirements
 * Latex-Theorem
