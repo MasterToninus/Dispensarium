@@ -49,3 +49,10 @@ Temporary Items
 *.bbl
 *.blg
 *.dvi
+*.bbl
+*.pdf
+*.acn
+*.glo
+*.ist
+*.sbl
+*.log
