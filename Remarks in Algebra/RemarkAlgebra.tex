@@ -50,7 +50,7 @@ Operation $\OpA$ is said:
 	\begin{equation}\label{ExistsUnit}
 		\exists e \in M \quad : \quad e \OpA x = x \OpA e = x \quad \forall x \in M
 	\end{equation}
-	Such an element is unique, and thus one speaks of the identity element.
+	Such an element is unique, and thus one speaks of \emph{identity element}.
 \item \emph{Exists Inverse:}
 	\begin{equation}\label{ExistsInverse}
 		\forall a \in M \quad \exists b \in M \quad : \quad a \OpA b = b \OpA a = e
@@ -165,6 +165,18 @@ Are defined some basic compatibility relations:
 		( a \OpB b)\OpA c = (a \OpA c) \OpB (b \OpA c) \qquad \forall a,b,c \in R	
 	\end{equation}
 \end{itemize}
+\begin{notationfix}
+	Mimicking the numeric fields we denote
+	\begin{tabular}{|c|c c|}
+		\hline 
+			& Identity & Inverse \\
+		\hline
+		$\OpA$ & $\mathbb{1}$ & $(\cdot)^{-1}$\\
+		$\OpB$ & $\mathbb{O}$ & $-(\cdot)$\\
+		\hline
+	\end{tabular}
+
+\end{notationfix}
 
 Depending on the properties satisfied by $\OpA,\OpB$, the triple $(M,\OpA,\OpB)$ is called:
 
@@ -305,19 +317,6 @@ Depending on the properties satisfied by $\OpA,\OpB$, the triple $(M,\OpA,\OpB)$
 
 \end{minipage}
 
-\begin{notationfix}
-	Mimicking the numeric fields we denote
-	\begin{tabular}{|c|c c|}
-		\hline 
-			& Identity & Inverse \\
-		\hline
-		$\OpA$ & $\mathbb{1}$ & $(\cdot)^{-1}$\\
-		$\OpB$ & $\mathbb{O}$ & $-(\cdot)$\\
-		\hline
-	\end{tabular}
-
-\end{notationfix}
-
 \newpage
 \section{Structures over a Field}
 Be $\KField$ a field, we call a \emph{scalar multiplication} over the set $V$ the function:
@@ -401,7 +400,7 @@ Depending on the properties satisfied by $\OpA,\OpB$, the triple $(M,\OpA,\OpB)$
     \cellcolor{blue!25} \footnotesize Associativity& \cellcolor{yellow!25}  \\
     \cellcolor{red!25} \footnotesize Identity& \cellcolor{yellow!25} \\
     \cellcolor{red!25} \footnotesize Inverse& \cellcolor{yellow!25} \\
-    \cellcolor{red!25} \footnotesize Commutativity& \multirow{-5}{*}{\tiny\cellcolor{yellow!25} Magma $\big(\OpA\big)$} \\
+    \cellcolor{red!25} \footnotesize Commutativity& \multirow{-5}{*}{\tiny\cellcolor{yellow!25} SemiGroup $\big(\OpA\big)$} \\
   \hline
   	\cellcolor{blue!25} \footnotesize Left Distributivity&  \tiny\cellcolor{yellow!25}Distributivity\\
     \cellcolor{blue!25} \footnotesize Right Distributivity & \tiny\cellcolor{yellow!25} $\big(\OpA\big)$ w.r.t. $\big(\OpB\big)$  \\
@@ -465,7 +464,7 @@ Depending on the properties satisfied by $\OpA,\OpB$, the triple $(M,\OpA,\OpB)$
     \cellcolor{blue!25} \footnotesize Associativity& \cellcolor{yellow!25}  \\
     \cellcolor{blue!25} \footnotesize Identity& \cellcolor{yellow!25} \\
     \cellcolor{red!25} \footnotesize Inverse& \cellcolor{yellow!25} \\
-    \cellcolor{red!25} \footnotesize Commutativity& \multirow{-5}{*}{\tiny\cellcolor{yellow!25} Magma $\big(\OpA\big)$} \\
+    \cellcolor{red!25} \footnotesize Commutativity& \multirow{-5}{*}{\tiny\cellcolor{yellow!25} Monoid $\big(\OpA\big)$} \\
   \hline
   	\cellcolor{blue!25} \footnotesize Left Distributivity&  \tiny\cellcolor{yellow!25}Distributivity\\
     \cellcolor{blue!25} \footnotesize Right Distributivity & \tiny\cellcolor{yellow!25} $\big(\OpA\big)$ w.r.t. $\big(\OpB\big)$  \\
