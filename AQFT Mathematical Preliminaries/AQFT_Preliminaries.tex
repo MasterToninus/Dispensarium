@@ -556,6 +556,83 @@ support of a section.
 					\item $ (x^*)^* = x \qquad \forall x \in V$
 				\end{enumerate}	
 			\end{definition}
+			
+			
+			\begin{observation}
+			 An algebra over a field $\KField$ is a ring\cite{TonyAlgebra} $A$ together with a ring homomorphism
+			\begin{displaymath}
+				\eta : \KField \rightarrow Z(A)
+			\end{displaymath}
+			where $Z(A)$ is the center of $A$ \url{https://en.wikipedia.org/wiki/Algebra_over_a_field#Algebras_and_rings}.
+			
+				\begin{remark}
+				The center of a ring $R$ is the subset of $R$ consisting of all those elements $x \in R$ such that 
+				\begin{displaymath}
+					x r = r x \qquad \forall x \in R
+				\end{displaymath}
+				The center is a commutative subring of $R$, and $R$ is an algebra over its center.\\
+				The center of an algebra $A$ consists of all those elements $x \in A$ such that 
+				\begin{displaymath}
+					x a = a x \qquad \forall a \in A
+				\end{displaymath}		
+				\end{remark}				 
+			\end{observation}
+
+			\begin{remark}
+				Let $R= (R, \otimes, \oplus)$ a ring, $ I\subseteq R$ is a \emph{bilateral ideal} if:
+				\begin{itemize}
+					\item 	$(I,\oplus) \subseteq ( R, \oplus)$ is a (additive) subgroup.
+					\item \emph{Right Ideal}
+						\begin{displaymath}
+							x \otimes r \in I \qquad \forall x \in I , \: r \in R
+						\end{displaymath}									
+					\item \emph{Left Ideal}
+						\begin{displaymath}
+							r \otimes x \in I \qquad \forall x \in I , \: r \in R
+						\end{displaymath}									
+				\end{itemize}
+				(Obviously $I$ is a subring.)
+			\end{remark}
+			
+			\begin{definition}[(bilateral) Ideal]
+				Let $A= ((A,\KField), \otimes, \oplus)$ an unital algebra over $\KField$, $ I\subseteq R$ is a \emph{bilateral ideal} if:
+				\begin{itemize}
+					\item 	$((I, \KField),\oplus) \subseteq ( (R, \KField), \oplus)$ is a subvector space.
+					\item \emph{Right Ideal}
+						\begin{displaymath}
+							x \otimes r \in I \qquad \forall x \in I , \: r \in R
+						\end{displaymath}									
+					\item \emph{Left Ideal}
+						\begin{displaymath}
+							r \otimes x \in I \qquad \forall x \in I , \: r \in R
+						\end{displaymath}									
+				\end{itemize}
+				(Obviously $I$ is a subalgebra.)				
+			\end{definition}
+			
+			\begin{remark}
+				Let be $(R, \oplus)$ a ring and $I$ a bilateral ideal.\\
+				We call \emph{quotient ring (of $R$ modulo $I$)} the set:
+				\begin{displaymath}
+					\frac{R}{I}= \big\{[a] \equiv a + I \coloneqq \{a+r \: \vert \: r \in I\}\quad \big\vert\quad  a \in R\big\}
+				\end{displaymath}
+				constituted by the equivalence classes $[a]$ with respect to the congruence relation:
+				\begin{displaymath}
+					a \sim b \quad \Leftrightarrow (a \ominus b) \in I
+				\end{displaymath}
+				and rigged with the ring operations:
+				\begin{displaymath}
+					[a]+[b] = [ a \oplus b] \qquad \forall a,b \in R
+				\end{displaymath}
+				\begin{displaymath}
+					[a]\cdot[b] = [ a \otimes b] \qquad \forall a,b \in R
+				\end{displaymath}
+			\end{remark}
+			
+			\begin{definition}[Quotient Algebra of $A$ modulo $I$]
+				
+			\end{definition}
+
 
 		
 %-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -574,6 +651,8 @@ support of a section.
 \bibitem{barconcepts}
 
 \bibitem{TonyBundles}  Toninus, P. An Excursus on Bundles. at \url{https://github.com/MasterToninus/Dispensarium/blob/master/Fiber Bundles/FiberBundles.pdf}
+
+\bibitem{TonyAlgebra} Toninus, P. Abstact Algebra Zoology. at \url{https://github.com/MasterToninus/Dispensarium/blob/master/Remarks in Algebra/RemarkAlgebra.pdf}
 
 \end{thebibliography}		
 
