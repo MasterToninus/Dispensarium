@@ -1,0 +1,147 @@
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+%  Section on Ideal
+%_______________________________________________________________________________
+
+%\documentclass{standalone}
+\documentclass[a4paper,12pt]{scrartcl}    %attenzione! uso scratctl che permette sottotitolo
+
+\input{../Preamble.tex}
+
+\usepackage{colortbl}%http://tex.stackexchange.com/questions/50349/color-only-a-cell-of-a-table
+%multi-row
+\usepackage{multirow}
+
+\newcommand{\OpA}{\otimes}
+\newcommand{\OpB}{\oplus}
+
+\begin{document}
+	\section{Ideal (Semigroups)}
+	Consider a semigroup $(S, \OpA)$ and two subsets $A$ and $B$.
+	\begin{notationfix}
+		\begin{displaymath}
+			A B \coloneqq \{ a \OpA b \; \vert \; a \in A ;\, b \in B \}
+		\end{displaymath}
+	\end{notationfix}
+	\begin{notationfix}
+		Left coset of $a \in A\subset S$:
+		\begin{displaymath}
+			[a]_L = a S
+		\end{displaymath}
+		Right coset of $a \in A\subset S$:
+		\begin{displaymath}
+			[a]_R =  S a
+		\end{displaymath}
+	\end{notationfix}
+	
+	\begin{definition}[SubSemigroup]
+		$A$ is a \emph{semigroup of} $S$ iff:
+		\begin{displaymath}
+			A A \subset A 
+		\end{displaymath}
+	\end{definition}
+	
+		\begin{definition}[Normal SubSemigroup]
+		$A$ is a \emph{normal semigroup of} $S$, $A \triangleleft S$ iff:
+		\begin{displaymath}
+			a S = S a \qquad \forall a \in A
+		\end{displaymath}
+	\end{definition}
+	\begin{Warning}
+		Con i gruppi si legge come coniugazione \url{https://en.wikipedia.org/wiki/Normal_subgroup}
+	\end{Warning}
+	
+
+	\begin{definition}[Right Ideal]
+		$A$ is a \emph{right ideal of} $S$ iff:
+		\begin{displaymath}
+			S A \subset A 
+		\end{displaymath}
+	\end{definition}
+	
+	\begin{definition}[Left Ideal]
+		$A$ is a \emph{left ideal of} $S$ iff:
+		\begin{displaymath}
+			S A \subset A 
+		\end{displaymath}
+	\end{definition}
+	
+	\begin{definition}[Two-sided (Bilateral) Ideal]
+		$A$ is a \emph{bilateral ideal of} $S$ if it is both a left and a right ideal.
+		\textit{i.e.:}
+		\begin{displaymath}
+			S A S \subset A 
+		\end{displaymath}
+	\end{definition}
+	
+	\begin{proposition}
+		If $S$ is a monoid (unital semigroup) and $A \subset S$ a submonoid, then	
+		\begin{displaymath}
+			  S A S \subset A \qquad \Leftrightarrow \qquad A\textrm{ two-sided ideal}
+		\end{displaymath}
+	\end{proposition}
+	\begin{proof}
+	Existence of unital element in $S$ guarantees that both $S A= S A {1}$ and $A S = {1} A S $ are subsets of $S A S$.\\	
+	The converse hold true for every semigroups.
+	\end{proof}
+
+	\section{Ideal (Rings)}
+	Consider an arbitrary ring $(R,\OpB,\OpA)$, let $(R,\OpB)$ be its \emph{additive group}.
+	\begin{definition}[Right Ideal]
+		Subset $I \subset R$ such that:
+		\begin{enumerate}
+			\item $(I, \OpB)$ is an additive subgroup of $(R, \OpB)$.
+			\item $I$ absorbs multiplication on the right:
+				\begin{displaymath}
+					( x \OpA r ) \in I \qquad \forall  x \in I, \forall r \in R
+				\end{displaymath}
+		\end{enumerate}
+	\end{definition}
+
+	\begin{definition}[Left Ideal]
+		Subset $I \subset R$ such that:
+		\begin{enumerate}
+			\item $(I, \OpB)$ is an additive subgroup of $(R, \OpB)$.
+			\item $I$ absorbs multiplication on the left:
+				\begin{displaymath}
+					( r \OpA x )\in I \qquad \forall  x \in I, \forall r \in R
+				\end{displaymath}
+		\end{enumerate}
+	\end{definition}
+
+	\begin{definition}[Two-sided (Bilateral) Ideal]
+		$A$ is a \emph{bilateral ideal of} $S$ if it is both a left and a right ideal.
+	\end{definition}
+
+	\begin{Warning}
+		...
+	\end{Warning}
+	
+	Consider an arbitrary ring $(R,\OpB,\OpA)$ and a two-sided ideal $I\subset R$:
+	\begin{proposition}[ $a$ congruent $b$ modulo $I$]
+		Consider $a,b \in R$:
+		\begin{displaymath}
+			a \sim b \qquad \Leftrightarrow (a  - b ) \in I
+		\end{displaymath}
+		is a \emph{Congruence Relation}
+	\end{proposition}
+	\url{https://en.wikipedia.org/wiki/Quotient_ring}
+	
+	\begin{definition}[Ring quotient by an ideal]
+		Is the set 
+		\begin{displaymath}
+		 R/I \coloneqq \{ [a]\}
+		\end{displaymath}
+		where:
+		\begin{displaymath}
+			[a] = a \OpB I = \{ a + r \: \vert \: r \in I \}
+		\end{displaymath}
+		endowed with operations:
+		\begin{itemize}
+			\item $ (a + I) + (b + I) = (a + b) + I $
+			\item $ (a + I)(b + I) = (a b) + I$
+		\end{itemize}
+
+	
+	\end{definition}
+
+\end{document}
