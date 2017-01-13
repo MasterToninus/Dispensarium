@@ -1,0 +1,52 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{dispensarium}[13/01/2017 note style]
+
+%Per le Figure
+\RequirePackage[english]{babel}
+\RequirePackage{graphicx}
+
+%simboli matematici strani quali unione disgiunta
+\RequirePackage{amssymb}
+
+%Scrivere Sotto i simboli
+\RequirePackage{amsmath}
+
+%Diagrammi Commutativi
+\RequirePackage{tikz}
+\usetikzlibrary{matrix}
+
+%Il simbolo di Identità
+\RequirePackage{dsfont}
+
+%Per riflettere i simboli...
+\RequirePackage{graphicx}
+
+
+%link iNTERNET
+\RequirePackage{hyperref}
+
+%Enumerate with letters
+\RequirePackage{enumerate}
+
+%Slash over letter
+\RequirePackage{cancel}
+
+%Usare bibiliografia bibtex
+%\bibliographystyle{plain}
+
+%Danger sign
+\RequirePackage{fourier}
+
+%:=
+\RequirePackage{mathtools}
+
+
+
+%Common symbols
+\RequirePackage{../../Math-Symbols-List/commonsymbols}
+
+%% Warning: use the ../ because the source including these files are in the upper folder! :D
+%Temporaneo, Aggiunta della mia classe teorem... Deve diventare un pacchetto! 
+\input{../../Latex-Theorem/TheoremTemplateToninus.tex}
+
+\endinput
