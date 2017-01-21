@@ -829,11 +829,12 @@ Given an "almost"\footnote{Similar to the case presented in observation \ref{oss
 				\item $M$ = smooth manifold
 					\\ $E$ = simple set (\underline{not} a manifold)
 					\\ $\pi: E \rightarrow M$ = surjective function (\underline{not} smooth)
-				\item Endowed with an "almost" open trivialization atlas:
+				\item Endowed with an "almost"\footnote{In the sense that $E$ is in a sense locally isomorphic to a cartesian product of two spaces} open trivialization atlas:
 					\\ $\mathcal{A}= \big\{ (U_{\alpha}, \chi_{\alpha}) \big \}$ such that
 						\begin{itemize}
 						\item $\{ U_{\alpha} \}$ it's an open cover of $M$.
-						\item $\chi_{\alpha} : \pi^{-1}(U_{\alpha}) \rightarrow U_{\alpha} \times \mathbb{R}^n$ bijective (\underline{not} diffeomorphism) and $p_1 \cdot \chi_{\alpha} = \pi$.
+						\item $\chi_{\alpha} : \pi^{-1}(U_{\alpha}) \rightarrow U_{\alpha} \times \mathbb{R}^n$ bijective (\underline{not} diffeomorphism)
+						\item  $p_1 \cdot \chi_{\alpha} = \pi$
 						\end{itemize}
 				\item Is provided a chart atlas $(U_{\alpha}, \phi_{\alpha})$ on the precedent open cover together with all the \emph{transition map} $g_{\alpha \beta}$, i.e:
 				\begin{displaymath}
@@ -853,46 +854,54 @@ Given an "almost"\footnote{Similar to the case presented in observation \ref{oss
 
 The hypothesized structure lacks the following properties in order to form a vector bundle:
 \begin{itemize}
-\item[a)] The fiber upon a point has to be isomorphic to the typical fiber, i.e. $ E_p \simeq \mathbb{R}^n \quad \forall p$.
+\item[a)] The fiber $ E_p$ upon any point $p$ has to be a vector space isomorphic to the typical fiber $ \Real^n$.
 
 \item[b)] $E$ has to be a smooth manifold.
 
-\item[c)] $\chi$ has to be a diffeomorphism
+\item[c)] $\chi_\alpha$ has to be a diffeomorphism
 
 \item[d)] $\pi$ has to be differentiable.
 \end{itemize}
+Furthermore has to be proved there is a unique vector bundle structure (e).
 
 \begin{proof}
 \begin{itemize}
-\item[a)]  Using Hp.2 is possible to associates $\forall V \in E$ $\vec{V}\in \mathbb{R}^n$ biunivocally:
+\item[a)]
+	\begin{itemize}
+		\item The restriction $\left. \chi_\alpha \right|_{E_p}$ is a bijection (1-to-1) into $\{p\}\times \Real^r$ since $\chi_\alpha$ is bijective by Hp.2 and the range of its restriction is:
+		\begin{displaymath}
+			\chi_\alpha \left( E_p \right) = p_1^{-1} \left(p_1 \left( \chi_\alpha \right)\right) (E_p) = 
+			p_1^{-1} (\pi(E_p) ) = p_1^{-1} \{p\} = \{p\} \times \Real^r
+		\end{displaymath}
+		thus one can associate biunivocally a r-ple $v\in\Real^r$ for all $e \in E_{p}$.
+		
+	\item 	Then is easy to endow $E_p$ with a natural vector bundle structure:
 	\begin{displaymath}
-	\chi_\alpha \vert_{E_p}: V_p \in E_p \leftrightarrow \vec{V} \in \{p\} \times \mathbb{R}^n \simeq 	\mathbb{R}^n 
+	u_1 + \lambda u_2 := \chi_\alpha^{-1} \big( p, \vec{u_1} + \lambda \vec{u_2}) \qquad \forall u_1,u_2 \in E_p \; \forall \lambda \in \mathbb{R}
 	\end{displaymath}
-Then endow $E_p$ with a natural vector bundle structure:
-	\begin{displaymath}
-	u_1 + \lambda u_2 = \chi_\alpha^{-1} \big( p, \vec{u_1} + \lambda \vec{u_2} \qquad \forall u_1,u_2 \in E_p \; \forall \lambda \in \mathbb{R}
-	\end{displaymath}
-\vspace{5mm}
-In other words all local trivialization containing p induce a vector space structure, this is is well defined if the linear composition defined through $\chi_\alpha$ is the same as the structure defined through $\chi_\beta$ $\forall p \in U_\alpha \cap U_\beta$.
+	In other words all local trivialization containing p induce a vector space structure, this is is well defined if the linear composition defined through $\chi_\alpha$ is the same as the structure defined through $\chi_\beta$ $\forall p \in U_\alpha \cap U_\beta$.
 \\
-Take $u \in E_p$ and define $\vec{v},\vec{u}$ such that $\chi_\alpha (u) = \big(p, \vec{v} \big)$ and $\chi_\beta (u) = \big(p, \vec{w} \big)$.
+	 $\forall e_i \in E_p$ we define $u_i,w_i \in \Real^r$ such that $\chi_\alpha (e_i) = \big(p, u_i \big)$ and $\chi_\beta (e_i) = \big(p, w_i \big)$.
 \\
-By Hp.3 $(p, \vec{V_\alpha})= \chi_\alpha \circ \chi_\beta^{-1}(p, \vec{V_\beta}) = (p, [g_{\alpha \beta}](p)\vec{V_\beta})$
 So the good definition is assured by:
 	\begin{eqnarray}
-		(u_1 + \lambda u_2)^{(\alpha)} = \chi_\alpha^{-1} (p, \vec{v_1} + \lambda \vec{v_2} =
-		\chi_\alpha^{-1} (p, g_{\alpha \beta}\vec{w_1} + \lambda g_{\alpha \beta}\vec{w_2} =\\=
-		\chi_\alpha^{-1} (p, g_{\alpha \beta}(\vec{w_1} + \lambda \vec{w_2} =
-		\cancel{\chi_\alpha^{-1} \circ\chi_\alpha }\circ \chi_\beta^{-1}(p, \vec{w_1} + \lambda \vec{w_2}= (u_1 + \lambda u_2)^{(\beta)}
+		(e_1 + \lambda e_2)^{(\alpha)} = \chi_\alpha^{-1} (p, \vec{u_1} + \lambda \vec{u_2} ) =
+		\chi_\alpha^{-1} (p, g_{\alpha \beta}\vec{w_1} + \lambda g_{\alpha \beta}\vec{w_2} ) =\\=
+		\chi_\alpha^{-1} \left(p, g_{\alpha \beta} \left(\vec{w_1} + \lambda \vec{w_2}\right)\right) =
+		\cancel{\chi_\alpha^{-1} \circ\chi_\alpha }\circ \chi_\beta^{-1}\left(p, \vec{w_1} + \lambda \vec{w_2}\right)= (e_1 + \lambda e_2)^{(\beta)}
 	\end{eqnarray}
+	where in the last two equation has been exploited Hp.3.
+	
+	\end{itemize}
+
 
 \item[b)] It's possible to endow $E$ with an atlas of compatible charts.
 	\\
 	$\{\pi^{-1}(A) \vert A \in \textrm{top}(M) \}$ constitutes a topology on $E$.
 	\\
-	Surjectivity of $pi$ $\Rightarrow$ $\{\pi^{-1}(U_\alpha) =\tilde{U_\alpha} \}$ it's an open cover of $E$.
+	Surjectivity of $\pi$ $\Rightarrow$ $\{\pi^{-1}(U_\alpha) =\tilde{U_\alpha} \}$ it's an open cover of $E$.
 	\\
-	$\tilde{\chi_\alpha}: \pi^{-1}(U_\alpha) \rightarrow \mathbb{R}^{\textrm{dim}(M)}\times \mathbb{R}^n$ such that $tilde{\chi_\alpha} = ( \phi_\alpha \times \mathbb{1} ) \circ \chi_\alpha$ consitutes a chart on $E$ $\forall \phi_\alpha$ chart on  $M$.
+	$\tilde{\chi_\alpha}: \pi^{-1}(U_\alpha) \rightarrow \mathbb{R}^{\textrm{dim}(M)}\times \mathbb{R}^n$ such that $\tilde{\chi_\alpha} = ( \phi_\alpha \times \mathbb{1} ) \circ \chi_\alpha$ consitutes a chart on $E$ $\forall \phi_\alpha$ chart on  $M$.
 	\\
 	Transition chart are smooth because composition of two smooth function:
 	\begin{displaymath}
@@ -910,8 +919,11 @@ So the good definition is assured by:
 	\begin{displaymath}
 		\phi_\alpha \circ \pi \circ \tilde{\chi_\alpha}^{-1} =
 		\phi_\alpha \circ \pi \circ \chi_{\alpha}^{-1} \circ (\phi_\alpha \times \mathbb{1})^{-1} =
-		\phi_\alpha \circ p_1 \circ ( \phi_\alpha^{-1} \times \mathbb{1} ) \mathbb{1}
+		\phi_\alpha \circ p_1 \circ ( \phi_\alpha^{-1} \times \mathbb{1} ) = \mathbb{1}
 	\end{displaymath}
+	
+	\item[e)]	un attimo sono perplesso...
+	
 \end{itemize}
 
 
