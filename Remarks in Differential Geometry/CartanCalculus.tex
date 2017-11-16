@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{lipsum}
+
+%https://tex.stackexchange.com/questions/48980/whole-page-table-with-tabularx
+
+\begin{document}
+  \begin{landscape}
+    \thispagestyle{empty}
+    \noindent
+    \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
+      \hline
+     	  & $f \in C^\infty(M)$ & $\textrm{d}x^\mu$ & $\omega^{(k)} \wedge \beta$ & $T_1 \otimes T_2$ & $\partial_\mu$ \\
+      \hline
+      	$\textrm{d}$ & $\left(\partial_\nu f \right) \: \textrm{d}x^\nu$ & 0 & $\left( \textrm{d} \omega^{(k)} \right) \wedge \beta + (-)^k $ & - & - \\
+      	$\mathcal{L}_X$ & - & - & - & - & - \\
+      	$i_X$  & - & - & - & - & - \\
+      	$g^\ast$  & - & - & - & - & - \\
+      \hline
+    \end{tabularx}
+  \end{landscape}
+\end{document}
