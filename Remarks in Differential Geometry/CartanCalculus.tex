@@ -1,7 +1,31 @@
 \documentclass[a4paper,12pt]{scrartcl}
 \usepackage{pdflscape}
 \usepackage{tabularx}
-\usepackage{lipsum}
+\usepackage{array}
+\setlength{\extrarowheight}{6mm}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={185mm,277mm},
+ left=5mm,
+ right=5mm,
+ top=5mm,
+ bottom=5mm,
+ }
+ 
+\usepackage[subpreambles=true]{standalone}
+ 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\renewcommand*{\thefootnote}{\alph{footnote}}
+
+
+
+\providecommand{\lie}{\mathcal{L}}
+\providecommand{\dext}{\textrm{d}}
+
 
 %https://tex.stackexchange.com/questions/48980/whole-page-table-with-tabularx
 
@@ -9,15 +33,69 @@
   \begin{landscape}
     \thispagestyle{empty}
     \noindent
-    \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
+    	    Suppose $M$ is a smooth manifold, denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the module of vector fields.  \\
+    \vspace{5mm}
+    \begin{tabularx}{\linewidth}{|c|c|c|c|c|c|}
       \hline
-     	  & $f \in C^\infty(M)$ & $\textrm{d}x^\mu$ & $\omega^{(k)} \wedge \beta$ & $T_1 \otimes T_2$ & $\partial_\mu$ \\
+     	  & $f \in C^\infty(M)$ & $\dext x^\mu \in \Omega^1(M)$ & $\omega^{(k)} \wedge \beta$ & $T_1 \otimes T_2$ & $\partial_\mu \in \mathfrak{X}(M)$ \\
       \hline
-      	$\textrm{d}$ & $\left(\partial_\nu f \right) \: \textrm{d}x^\nu$ & 0 & $\left( \textrm{d} \omega^{(k)} \right) \wedge \beta + (-)^k $ & - & - \\
-      	$\mathcal{L}_X$ & - & - & - & - & - \\
-      	$i_X$  & - & - & - & - & - \\
-      	$g^\ast$  & - & - & - & - & - \\
+      	$\dext$ & $\left(\partial_\nu f \right) \: \dext ^\nu$ & 0 & $\left( \dext \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \dext\beta \right) $ & - & - \\
+      	$\lie_X$ & $X(f)$ & $\lie_X \dext x^\mu = \dext \left(X^a \partial_a x^\mu\right) =  \dext \left(X^a \delta_a^\mu \right) = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_mu]$ \\
+      	$\iota_X$  & $0$ & $\iota_X \dext ^\mu = \dext x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ & $\left(\iota_X T_1\right) \otimes T_2 + T_1 \otimes \left(\iota_X T_2 \right)$  & $0$ \\
+      	$g^\ast$  & $f^\ast \left(g\right) = g \circ f $ & $ f^\ast \left(\dext ^\mu \right) = \dext\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ & $(g^{-1})_\ast \partial_\mu$ \quad \footnote{$g$ has to be a diffeo} \\ %& & & & & \\
       \hline
     \end{tabularx}
+
+	\hspace{5mm}
+	\begin{minipage}{0.45 \linewidth}
+		\fbox{
+		  \parbox{\textwidth}{
+			    The \emph{Cartan calculus} consists of the following three \emph{graded derivations} on $\Omega(M)$
+				\begin{itemize}\itemsep0em 
+					\item the \emph{exterior derivative} $d$;
+					\item the space of \emph{Lie derivative operators} $\lie_X$, where $X \in \mathfrak{X}(M)$;
+					\item the space of \emph{contraction operators} $\iota_X$, where $X \in \mathfrak{X}(M)$.
+				\end{itemize}
+				\begin{center}
+						\includestandalone[scale=0.80]{cartancalculusdiagram}	
+				\end{center}
+				
+				Together with the following identities:
+				\begin{align}
+					\dext^2 &= 0, \label{cartfirst}\\
+					\dext \lie_X - \lie_X d &= 0, \\
+					\dext \iota_X + \iota_X d &= \lie_X, \label{magic}\\
+					\lie_X \lie_Y - \lie_Y \lie_X &= \lie_{[X,Y]}, \\
+					\lie_X \iota_Y - \iota_Y \lie_X &= \iota_{[X,Y]},\\
+					\iota_X \iota_Y + \iota_Y \iota_X &= 0, \label{cartlast}
+				\end{align}
+		  }
+		}
+
+	\end{minipage}
+	\hspace{1cm}
+	\begin{minipage}{0.45 \linewidth}
+		\fbox{
+		  \parbox{\textwidth}{
+				A \emph{graded derivation} of $\Omega(M)$ is a degree $k$ linear operator $A$ on $\Omega(M)$ such that
+				\begin{equation}
+					A (\omega \wedge \eta) = A(\omega) \wedge \eta + (-1)^{kp} \omega \wedge A(\eta) \qquad \forall \omega \in \Omega^k(M) , \; \eta \in \Omega^\cdot(M)
+				\end{equation}
+		  }
+		}
+		\vfill
+		\fbox{
+		  \parbox{\textwidth}{
+				\begin{displaymath}
+			    	\Omega(M) = \left(\bigoplus_{k=0}^m \Omega^k(M), \wedge \right) \qquad \textrm{\emph{Grassman Algebra} on M}
+			    \end{displaymath}
+		  }
+		}
+
+	\end{minipage}
+	
+
+
+    
   \end{landscape}
 \end{document}
