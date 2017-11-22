@@ -39,9 +39,9 @@
       \hline
      	  & $f \in C^\infty(M)$ & $\dext x^\mu \in \Omega^1(M)$ & $\omega^{(k)} \wedge \beta$ & $T_1 \otimes T_2$ & $\partial_\mu \in \mathfrak{X}(M)$ \\
       \hline
-      	$\dext$ & $\left(\partial_\nu f \right) \: \dext ^\nu$ & 0 & $\left( \dext \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \dext\beta \right) $ & - & - \\
+      	$\dext$ & $\left(\dfrac{\partial f }{\partial x^\nu} \right) \: \dext x^\nu$ & 0 & $\left( \dext \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \dext\beta \right) $ & - & - \\
 %      	$\lie_X$ & $X(f)$ & $\lie_X \dext x^\mu = \dext \left(X^a \partial_a x^\mu\right) =  \dext \left(X^a \delta_a^\mu \right) = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_mu]$ \\
-      	$\lie_X$ & $X(f) = x^\mu \partial_\mu f$ & $\lie_X \dext x^\mu = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_\mu]$ \\
+      	$\lie_X$ & $X(f) = X^\nu \left(\dfrac{\partial f }{\partial x^\nu} \right)$ & $\lie_X \dext x^\mu = \dext\left(X^\mu\right) =\left(\dfrac{\partial X^\mu }{\partial x^\nu} \right)  \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_\mu]$ \\
       	$\iota_X$  & $0$ & $\iota_X \dext x^\mu = \dext x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ & $\left(\iota_X T_1\right) \otimes T_2 + T_1 \otimes \left(\iota_X T_2 \right)$  & $0$ \\
       	$g^\ast$  & $g^\ast \left(f\right) = g \circ f $ & $ g^\ast \left(\dext x^\mu \right) = \dext\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ & $(g^{-1})_\ast \partial_\mu$ \quad \footnote{$g$ has to be a diffeo} \\ %& & & & & \\
       \hline
@@ -127,6 +127,10 @@
 		  	\end{align*}
 		  }
 		}
+		An ($I$)-graded vector space $'V$ is a vector space that can be written as a direct sum of subspaces indexed by elements $i\in I$:
+		\begin{displaymath}
+			V = \bigoplus_{i \in I} V_i
+		\end{displaymath}
 	\end{minipage}
 	\hspace{1cm}
 	\begin{minipage}{0.46 \linewidth}
