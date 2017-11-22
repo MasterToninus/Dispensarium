@@ -33,21 +33,22 @@
   \begin{landscape}
     \thispagestyle{empty}
     \noindent
-    	    Suppose $M$ is a smooth manifold, denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the module of vector fields.  \\
+    	    Suppose $M$ is a smooth manifold, denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
     \vspace{5mm}
-    \begin{tabularx}{\linewidth}{|c|c|c|c|c|c|}
+    \begin{tabularx}{\linewidth}{|c|X|c|c|c|c|}
       \hline
      	  & $f \in C^\infty(M)$ & $\dext x^\mu \in \Omega^1(M)$ & $\omega^{(k)} \wedge \beta$ & $T_1 \otimes T_2$ & $\partial_\mu \in \mathfrak{X}(M)$ \\
       \hline
       	$\dext$ & $\left(\partial_\nu f \right) \: \dext ^\nu$ & 0 & $\left( \dext \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \dext\beta \right) $ & - & - \\
-      	$\lie_X$ & $X(f)$ & $\lie_X \dext x^\mu = \dext \left(X^a \partial_a x^\mu\right) =  \dext \left(X^a \delta_a^\mu \right) = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_mu]$ \\
-      	$\iota_X$  & $0$ & $\iota_X \dext ^\mu = \dext x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ & $\left(\iota_X T_1\right) \otimes T_2 + T_1 \otimes \left(\iota_X T_2 \right)$  & $0$ \\
-      	$g^\ast$  & $f^\ast \left(g\right) = g \circ f $ & $ f^\ast \left(\dext ^\mu \right) = \dext\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ & $(g^{-1})_\ast \partial_\mu$ \quad \footnote{$g$ has to be a diffeo} \\ %& & & & & \\
+%      	$\lie_X$ & $X(f)$ & $\lie_X \dext x^\mu = \dext \left(X^a \partial_a x^\mu\right) =  \dext \left(X^a \delta_a^\mu \right) = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_mu]$ \\
+      	$\lie_X$ & $X(f) = x^\mu \partial_\mu f$ & $\lie_X \dext x^\mu = \dext\left(X^\mu\right) = \partial_\nu X^\mu \dext x^\nu$ & $\left( \lie_X \omega \right) \wedge \beta + \omega \wedge \left(\lie_X\beta \right)$ & $\left(\lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\lie_X T_2 \right)$ & $\lie_X \partial_\mu = [X, \partial_\mu]$ \\
+      	$\iota_X$  & $0$ & $\iota_X \dext x^\mu = \dext x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ & $\left(\iota_X T_1\right) \otimes T_2 + T_1 \otimes \left(\iota_X T_2 \right)$  & $0$ \\
+      	$g^\ast$  & $g^\ast \left(f\right) = g \circ f $ & $ g^\ast \left(\dext x^\mu \right) = \dext\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ & $(g^{-1})_\ast \partial_\mu$ \quad \footnote{$g$ has to be a diffeo} \\ %& & & & & \\
       \hline
     \end{tabularx}
 
-	\hspace{5mm}
-	\begin{minipage}{0.45 \linewidth}
+	
+	\begin{minipage}{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 			    The \emph{Cartan calculus} consists of the following three \emph{graded derivations} on $\Omega(M)$
@@ -74,7 +75,7 @@
 
 	\end{minipage}
 	\hspace{1cm}
-	\begin{minipage}{0.45 \linewidth}
+	\begin{minipage}{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 				A \emph{graded derivation} of $\Omega(M)$ is a degree $k$ linear operator $A$ on $\Omega(M)$ such that
@@ -87,15 +88,56 @@
 		\fbox{
 		  \parbox{\textwidth}{
 				\begin{displaymath}
-			    	\Omega(M) = \left(\bigoplus_{k=0}^m \Omega^k(M), \wedge \right) \qquad \textrm{\emph{Grassman Algebra} on M}
+			    	\Omega(M) = \left(\bigoplus_{k=0}^m \Omega^k(M), \wedge \right) \qquad \textrm{\emph{Grassmann Algebra} on M}
 			    \end{displaymath}
+			    is a graded commutative graded algebra over ring $C^\infty(M)$.
+		  }
+		}
+		\fbox{
+		  \parbox{\textwidth}{
+				\begin{displaymath}
+			    	\mathcal{T}(M) = \left(\bigoplus_{l,k=0}^\infty
+			    	 T^k_l(M), 
+			    	 \otimes \right) 
+			    	 \qquad \textrm{\emph{Tensor Algebra} on M}
+			    \end{displaymath}
+			    is a commutative graded algebra over ring $C^\infty(M)$.
 		  }
 		}
 
+
 	\end{minipage}
 	
-
-
+	\begin{minipage}{0.46 \linewidth}
+\newpage
+			\fbox{
+		  \parbox{\textwidth}{
+		  	How to compute brackets:
+		  	\begin{align}
+		  		\left[\partial_i, \partial_j\right] = 0 \\
+		  		\left[f \partial_i , g \partial_j\right]= f \cdot (\partial_i g)\cdot\partial_j - g\cdot(\partial_j f )\cdot\partial_i \\
+		  		\left[f X , g Y \right] = f\cdot g\cdot[X,Y] + f\cdot X(g)\cdot Y - g\cdot Y(f)\cdot X  \\
+		  		\left[X ,Y\right] = \left( X^i \partial_i Y^j - Y^i\partial_i X^j \right) \partial_j		  				
+		  	\end{align}
+		  	$(\mathfrak{X}(M) , [-,-])$ form a Lie algebra over $\mathbb{R}$:
+		  	\begin{align*}
+		  		[X,Y] = -[Y,X] \\
+		  		[aX + bY, Z] = a[X,Z] + b[Y,Z] \\
+		  		[[X,Y],Z] + [[Y,Z],X] + [[Z,X],Y] = 0 
+		  	\end{align*}
+		  }
+		}
+	\end{minipage}
+	\hspace{1cm}
+	\begin{minipage}{0.46 \linewidth}
+ 		TODO: glossary:
+ 			\begin{itemize}
+ 				\item Graded vector space
+ 				\item Graded algebra
+ 				\item linear operator of degree k
+ 				\item substitute $\partial_i f $ with $\dfrac{\partial f}{\partial x^i}$ in order to avoid confusion between natural basis vector and usual partial derivative operator acting on function$f$
+ 			\end{itemize}
+	\end{minipage} 
     
   \end{landscape}
 \end{document}
