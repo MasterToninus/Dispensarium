@@ -1,0 +1,116 @@
+%	Appunto di carralleta sui concetti di derivazione in geometria differenziale!
+%
+%
+
+
+\documentclass[a4paper,12pt]{scrartcl}    %attenzione! uso scratctl che permette sottotitolo
+
+% PREAMBLE %%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage[subpreambles=true]{standalone}
+ 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\renewcommand*{\thefootnote}{\alph{footnote}}
+
+
+\usepackage[tensors,diffgeo]{../Math-Symbols-List/toninus-math-symbols}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%  Titolo
+	\title{MEMENTO:}
+	\subtitle{Derivazione in Varieta' differenziabili}
+	\author{Tony}
+	\date{\today}
+\maketitle
+
+%introduzione
+bla bla
+
+%  Indice
+\tableofcontents
+
+\section{Work in Progress!}
+(substitute $\partial_i f $ with $\dfrac{\partial f}{\partial x^i}$ in order to avoid confusion between natural basis vector and usual partial derivative operator acting on function$f$)
+
+		\fbox{
+		  \parbox{\textwidth}{
+				A \emph{graded derivation} of $\Omega(M)$ is a degree $k$ linear operator $A$ on $\Omega(M)$ such that
+				\begin{equation}
+					A (\omega \wedge \eta) = A(\omega) \wedge \eta + (-1)^{kp} \omega \wedge A(\eta) \qquad \forall \omega \in \Omega^k(M) , \; \eta \in \Omega^\cdot(M)
+				\end{equation}
+		  }
+		}
+
+		\fbox{
+		  \parbox{\textwidth}{
+			An \emph{($I$-)graded vector space} $V$ is a vector space that can be written as a direct sum of subspaces indexed by elements $i$ of set $I$:
+			\begin{displaymath}
+				V = \bigoplus_{i \in I} V_i
+			\end{displaymath}
+		  }
+		}
+
+		\fbox{
+		  \parbox{\textwidth}{
+			An \emph{(p-)graded linear operator} $A$ is a linear operator on $V$ such that: 
+			\begin{displaymath}
+				V = \bigoplus_{i \in I} V_i
+			\end{displaymath}
+		  }
+		}
+
+		\fbox{
+		  \parbox{\textwidth}{
+			An \emph{(graded-)commutatative ($I$-)graded algebra} $(V, \wedge)$ is an algebra over $\Real$\footnote{Could be any ring in principle} such that :
+			\begin{displaymath}
+				\mapsto v^{(i)} \wedge w = w \wedge v^{i} \qquad \forall v^{(i)} \in V^{(i)}, w \in V
+			\end{displaymath}
+		  }
+		}		
+
+\section{Derivata in Astratto}
+\url{http://en.wikipedia.org/wiki/Derivation_%28differential_algebra%29]}
+
+
+
+\section{Derivata di Lie}
+\href{run:d:~/Downloads/FoM2.pdf}{link}
+Jurgen Jost, Riemannian Geometry and Geometric Analysis, (2002) Springer-Verlag, Berlin ISBN 3-540-42627-2 See section 1.6.
+
+
+
+\section{Derivata esterna}
+Capitolo 2.4 di Abraham Marsden
+
+\section{Derivata Covariante}
+Capitolo 2.7 di Abraham Marsden
+		\\
+ 		ChecK Covariant derivative on forms:
+		\begin{displaymath}
+			\nabla_X \ExtD x^\mu = \left[ \nabla_X \ExtD x^\mu \right]_\alpha \ExtD x^\alpha
+		\end{displaymath}
+		\begin{displaymath}
+			\left[ \nabla_X \ExtD x^\mu \right]_\alpha =
+			\left\langle \nabla_X \ExtD x^\mu  \right\vert \left. \partial_\alpha \right\rangle =
+			X^\nu \left\langle \nabla_\nu \ExtD x^\mu  \right\vert \left. \partial_\alpha \right\rangle =			
+			X^\nu \left(\nabla_\nu\left \langle  \ExtD x^\mu  \right\vert \left. \partial_\alpha \right\rangle - \left\langle \ExtD x^\mu  \right\vert \left. \nabla_\nu \partial_\alpha \right\rangle \right) =	
+			X^\nu \left( - \Gamma^\mu_{\, \nu \, \alpha} \right)
+		\end{displaymath}   
+
+\section{Vettori tangenti come derivazione}
+Capitolo 2.2 di Abraham Marsden
+
+
+
+\end{document}
