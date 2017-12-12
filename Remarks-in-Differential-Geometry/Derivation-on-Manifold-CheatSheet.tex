@@ -35,7 +35,7 @@
     \noindent
     \paragraph{CARTAN CALCULUS}
     	\mbox{}\\
-        $\quad$Suppose $M$ is a smooth manifold,$x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
+        $\quad$Suppose $M$ is a smooth manifold, $x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
     \vspace{5mm}
     \begin{tabularx}{\linewidth}{|c|X|X|c|}
       \hline
@@ -50,24 +50,24 @@
 	\begin{minipage}[c][.6\textheight]{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
-			    The \emph{Cartan calculus} consists of the following three \emph{graded derivations} on $\Omega(M)$
+			    The \emph{Cartan calculus} involves the following three \emph{graded derivations} on $\Omega(M)$
 				\begin{itemize}\itemsep0em 
 					\item the \emph{exterior derivative} $d$;
-					\item the space of \emph{Lie derivative operators} $\Lie_X$, where $X \in \mathfrak{X}(M)$;
-					\item the space of \emph{contraction operators} $\iota_X$, where $X \in \mathfrak{X}(M)$.
+					\item the \emph{Lie derivative operators} $\Lie_X$, where $X \in \mathfrak{X}(M)$;
+					\item the \emph{contraction operators} $\iota_X$, where $X \in \mathfrak{X}(M)$.
 				\end{itemize}
 				\begin{center}
 						\includestandalone[scale=0.80]{cartancalculusdiagram}	
 				\end{center}
 				
-				Together with the following identities:
+				Satisfying the following identities:
 				\begin{align}
-					\ExtD^2 &= 0, \label{cartfirst}\\
-					\ExtD \Lie_X - \Lie_X d &= 0, \\
-					\ExtD \iota_X + \iota_X d &= \Lie_X, \label{magic}\\
-					\Lie_X \Lie_Y - \Lie_Y \Lie_X &= \Lie_{[X,Y]}, \\
-					\Lie_X \iota_Y - \iota_Y \Lie_X &= \iota_{[X,Y]},\\
-					\iota_X \iota_Y + \iota_Y \iota_X &= 0, \label{cartlast}
+					\ExtD^2 &= 0 \label{cartfirst}\\
+					\ExtD \Lie_X - \Lie_X d &= 0 \\
+					\ExtD \iota_X + \iota_X d &= \Lie_X \qquad \textrm{\small\emph{(Cartan's formula)}}\label{magic}\\
+					\Lie_X \Lie_Y - \Lie_Y \Lie_X &= \Lie_{[X,Y]} \\
+					\Lie_X \iota_Y - \iota_Y \Lie_X &= \iota_{[X,Y]}\\
+					\iota_X \iota_Y + \iota_Y \iota_X &= 0 \label{cartlast}
 				\end{align}
 		  }
 		}
@@ -80,7 +80,7 @@
 				\begin{displaymath}
 			    	\Omega(M) = \left(\bigoplus_{k=0}^m \Omega^k(M), \wedge \right) \qquad \textrm{\emph{Grassmann Algebra} on M}
 			    \end{displaymath}
-			    is a (graded-)commutative graded algebra over ring $C^\infty(M)$.
+			    is a (graded-)commutative graded algebra over the ring $C^\infty(M)$.
 		  }
 		}
 		\vfill
@@ -88,13 +88,13 @@
 		\vfill	
 		\fbox{
 		  \parbox{\textwidth}{
-			An \emph{(graded-)commutatative ($I$-)graded algebra} $(V, \wedge)$ is an algebra over ring $R$ such that :
+			A \emph{(graded-)commutatative ($I$-)graded algebra} $(V, \wedge)$ is an algebra over ring $R$ such that :
 			\begin{displaymath}
 				V = \bigoplus_{i \in I} V_i
 			\end{displaymath}
 			and
 			\begin{displaymath}
-				v^{(i)} \wedge w = (-)^i w \wedge v^{i} \qquad \forall v^{(i)} \in V_{i}, \quad w \in V
+				v^{(i)} \wedge w = (-)^i w \wedge v^{(i=} \qquad \forall v^{(i)} \in V_{i}, \; w \in V
 			\end{displaymath}
 		  }
 		}
@@ -117,7 +117,7 @@
 
     \paragraph{ABSOLUTE DIFFERENTIAL CALCULUS}
     	\mbox{}\\
-        $\quad$Suppose $M$ is a smooth manifold,$x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
+        $\quad$Suppose $M$ is a smooth manifold, $x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
     \vspace{5mm}
     \begin{tabularx}{\linewidth}{|c|X|c|c|c|c|}
       \hline
@@ -148,7 +148,7 @@
 			    	 \otimes \right) 
 			    	 \qquad \textrm{\emph{Tensor Algebra} on M}
 			    \end{displaymath}
-			    is a bi-graded algebra over ring $C^\infty(M)$.
+			    is a bi-graded algebra over the ring $C^\infty(M)$.
 		  }
 		}
 		\vfill
@@ -219,7 +219,7 @@
 		  }
 		}	
 	\end{minipage}
-		\footnote[3]{Caveat: pull-back is well defined only on covariant tensors. Otherwise $g$ has to be a diffeo.}
+		\footnote[3]{Caveat: pull-back is well defined only on covariant tensors. Otherwise $g$ has to be a diffeomorphism.}
  
     
   \end{landscape}
