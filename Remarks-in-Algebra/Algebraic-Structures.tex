@@ -28,6 +28,7 @@
 \usepackage{fourier}
 \usepackage{mathtools}
 
+\usepackage{pifont} %tick checkmark
 \usepackage[symbol]{footmisc}
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
@@ -45,13 +46,19 @@
 \newcommand{\OpA}{\otimes}
 \newcommand{\OpB}{\oplus}
 
+\newcommand{\needed}{\cellcolor{green!25} needed}
+\newcommand{\unneeded}{ \cellcolor{red!25} unneeded}
+\newcommand{\xneeded}{\cellcolor{green!25} \ding{51}}
+\newcommand{\xunneeded}{ \cellcolor{red!25} \ding{55}}
+
+
 \usepackage{pdflscape}
 
 
 \begin{document}
 %  Titolo
 	\title{Prolegomena on (some) Abstact Algebra}
-	\subtitle{Algebraic structures zoology}
+	\subtitle{Elementary Algebraic structures zoology}
 	\author{Tony}
 	\date{\today}
 \maketitle
@@ -76,11 +83,25 @@
 	\begin{minipage}[t][]{0.30 \linewidth}
 	    \section*{Single Operation structures (Group-Like)}
 	    \mbox{}\\
-		Consider two set $M, A$ and a binary operation, i.e. a function:
+		Consider a set $M$ and a binary operation, i.e. a function:
 		\begin{displaymath}
-			\OpA : M \times M \rightarrow A
+			\OpA : M \times M \rightarrow M
 		\end{displaymath}
 		Operation $\OpA$ is said:	
+		
+		
+				\fbox{
+		  \parbox{\textwidth}{
+				\emph{Total} 
+				\begin{displaymath}
+				\ran(\OpA)\subset M \textrm{i.e.} 	( x \OpA y ) \in M \qquad \forall x,y\in M
+				\end{displaymath}
+				\begin{equation}\label{Totality}
+					\dom(\OpA) = M \times M
+				\end{equation}
+		  }
+		}
+		\vfill
 	\end{minipage}
 	%
 	\hspace{1cm}
@@ -108,12 +129,9 @@
 		%
 		\fbox{
 		  \parbox{\textwidth}{
-				\emph{Closed} 
-				\begin{displaymath}
-				\ran(\OpA)\subset M \qquad \dom(\OpA) = M \times M
-				\end{displaymath}
+				\emph{Total} 
 				\begin{equation}\label{Totality}
-					( x \OpA y ) \in M \qquad \forall x,y\in M
+					\dom(\OpA) = M \times M
 				\end{equation}
 		  }
 		}
@@ -135,7 +153,7 @@
 				\begin{equation}\label{Identity}
 					\exists e \in M \quad : \quad e \OpA x = x \OpA e = x \quad \forall x \in M
 				\end{equation}
-				Such an element is unique, and thus one speaks of \emph{identity element}.
+				Such an element is unique, and thus one speaks of \emph{neutral element}.
 		  }
 		}
 		%
@@ -146,7 +164,7 @@
 				\begin{equation}\label{Invertibility}
 					\forall a \in M \quad \exists b \in M \quad : \quad a \OpA b = b \OpA a = e
 				\end{equation}
-				where e is the identity element and thus one speaks of the identity element.
+				where e is the neutral element and thus one speaks of \emph{identity element} .
 		  }
 		}
 		%
@@ -195,13 +213,24 @@
 			Mimicking the numeric fields we denote
 			\begin{tabular}{|c|c c|}
 				\hline 
-					& Identity & Inverse \\
+					& Neutral & Inverse \\
 				\hline
 				$\OpA$ & $\mathbb{1}$ & $(\cdot)^{-1}$\\
 				$\OpB$ & $\mathbb{O}$ & $-(\cdot)$\\
 				\hline
 			\end{tabular}
 		\end{notationfix}
+		
+		Basic properties following from the axioms:
+		\begin{itemize}
+			\item The additive identity, the additive inverse of each element, and the multiplicative identity are unique.
+			\item For any element $x$ in a ring $R$, one has $x 0 = 0 = 0x $ (zero is an \emph{absorbing element} with respect to multiplication) and $(-1)x = -x$.
+			\item From the previous condition follows that invertibility w.r.t. multiplication can be imposed only on $a \neq =0$.
+			\item If $0 = 1$ in a ring $R$ (or more generally, 0 is a unit element), then $R$ has only one element, and is called the \emph{zero ring}.
+			\item The \emph{binomial formula} holds for any commuting pair of elements (i.e., any $x$ and $y$ such that $xy = yx$).
+		\end{itemize}
+		
+		
 		
 		Depending on the properties satisfied by $\OpA,\OpB$, the triple $(M,\OpA,\OpB)$ is called:
 		\vfill
@@ -226,7 +255,7 @@
 			    \cellcolor{blue!25} Closure& \cellcolor{yellow!25}  \\
 			    \cellcolor{blue!25} Associativity& \cellcolor{yellow!25}  \\
 			    \cellcolor{blue!25} Identity& \cellcolor{yellow!25} \\
-			    \cellcolor{blue!25} Inverse& \cellcolor{yellow!25} \\
+			    \cellcolor{orange!25} Inverse& \cellcolor{yellow!25} \\
 			    \cellcolor{blue!25} Commutativity& 
 			    \parbox[t]{2mm}{\multirow{-5}{*}{\rotatebox[origin=c]{90}{\cellcolor{yellow!25}\tiny Abelian Group $\big(\OpA\big)$}}}\\
 			  \hline
@@ -361,7 +390,7 @@
 
 \newpage
 	\begin{minipage}[c][\textheight]{0.30 \linewidth}
-	    \section*{Structures over a Field (Vector Space Like}
+	    \section*{Structures over a Field (Vector Space Like) MODULE!}
 	    \mbox{}\\
 			Be $\KField$ a field, we call a \emph{scalar multiplication} over the set $V$ the function:
 				\begin{displaymath}
@@ -532,6 +561,150 @@
 		\end{minipage}
 		%
 	\end{minipage}	
+
+
+%+------------------------------------------------------------------------------------+
+% |		Relations																			|
+%+------------------------------------------------------------------------------------+
+\newpage
+	\begin{minipage}[t][]{0.30 \linewidth}
+	    \section*{Relations}
+	    \mbox{}\\
+		Consider a set $X$, a relation is a subset $\rho \subset X \times X$.
+		Consider $x,y \in X$ we say $x \rho y $ iff $(x,y)\in \rho$.
+		
+		Basics:
+		
+		
+		Diagram:
+			
+	\end{minipage}
+	%
+	\hspace{1cm}
+	%
+	\begin{minipage}[t][]{0.60 \linewidth}
+    	\begin{center}
+    	Depending on the properties satisfied by $\rho$, the subset is called:
+    	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+    		\hline
+    		& \rotatebox[origin=c]{90}{Relation} & \rotatebox[origin=c]{90}{Symmetric} & \rotatebox[origin=c]{90}{Antisymmetric} 
+    		& \rotatebox[origin=c]{90}{Transitive} & \rotatebox[origin=c]{90}{Reflexive} & \rotatebox[origin=c]{90}{Total ordered} 
+    		& \rotatebox[origin=c]{90}{Minimal Condition} & \rotatebox[origin=c]{90}{With lower bounds} & \rotatebox[origin=c]{90}{Complete} 
+    		& \rotatebox[origin=c]{90}{Univocal} & \rotatebox[origin=c]{90}{Everywhere defined} \\
+    		\hline
+    		Binary Relation & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded  \\
+    		Equivalence & \xneeded & \xneeded & \xunneeded & \xneeded & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded  \\
+    		Poset & \xneeded & \xunneeded & \xneeded & \xneeded & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded  \\
+    		Total Order & \xneeded & \xunneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded  \\
+    		Lower Semilattice & \xneeded & \xunneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xunneeded & \xunneeded & \xunneeded  \\
+    		Complete Semilattice & \xneeded & \xunneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xneeded & \xunneeded & \xunneeded  \\
+    		Partial Map & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xneeded & \xunneeded  \\
+    		Function & \xneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xunneeded & \xneeded & \xneeded  \\
+    		\hline
+    	\end{tabular}
+    	\end{center}
+    	\begin{minipage}[t][]{0.45 \linewidth}
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Relation} 
+				\begin{equation}
+					\rho \in \mathcal{P}(X \times X ) \label{Relation}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Symmetric} 
+				\begin{equation}
+					x \rho y \Rightarrow y \rho x  \label{Symmetric}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{AntiSymmetric} 
+				\begin{equation}
+					x \rho y \; \wedge y \rho x \Rightarrow x=y  \label{Antisymmetric}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Transitive} 
+				\begin{equation}
+					x \rho y \; \wedge y \rho z \Rightarrow x \rho z  \label{Transitive}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Reflexive} 
+				\begin{equation}
+					\forall x \in X \quad x \rho x \label{Reflexive}
+				\end{equation}
+		  }
+		}
+		\vfill
+		\end{minipage}
+		%
+		\hspace{1cm}
+		%		
+		\begin{minipage}[t][]{0.450 \linewidth}
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Total Ordered} 
+				\begin{equation}
+					\forall x,y \in X \quad x \rho y \vee y \rho x \label{Totalorder}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Minimal Condition} 
+				\begin{equation}
+					\forall Y \subset \rho (\neq \emptyset)  \exists a_I \textrm{minimal element} \label{MinimalCond}
+				\end{equation}
+				\begin{displaymath}
+					(\forall y \in Y) y \leq a_I \Rightarrow y = a_I
+				\end{displaymath}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Exists lower bound} 
+				\begin{equation}
+					\exists x\wedge y \forall x,y\in X\label{Lowerbound}
+				\end{equation}
+		  }
+		}
+		\vfill
+		%
+		\fbox{
+		  \parbox{\textwidth}{
+				\emph{Complete lower bound} 
+				\begin{equation}
+					\exists \bigwedge\{y : y \in Y\} \quad \forall Y \subset X \label{completeness}
+				\end{equation}
+		  }
+		}		
+		\vfill
+		\end{minipage}	
+	\end{minipage}
+
+
 
 
 
