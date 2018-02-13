@@ -44,10 +44,10 @@
       	$\ExtD$ & $\ExtD f = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: \ExtD x^\nu$ & 0 & $\left( \ExtD \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \ExtD\beta \right) $ \\
       	$\Lie_X$ & $\Lie_X f = X(f) = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: X^\nu$ & $\Lie_X \ExtD x^\mu = \ExtD \left(X^a \partial_a x^\mu\right) =  \ExtD \left(X^a \delta_a^\mu \right) = \ExtD\left(X^\mu\right) = \partial_\nu X^\mu \ExtD x^\nu$ & $\left( \Lie_X \omega \right) \wedge \beta + \omega \wedge \left(\Lie_X\beta \right)$ \\
       	$\iota_X$  & $0$ & $\iota_X \ExtD x^\mu = \ExtD x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ \\
-      	$g^\ast$  & $g^\ast \left(f\right) = g \circ f $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ \\ %& & & & & \\
+      	$g^\ast$  \footnotemark[4]  & $g^\ast \left(f\right) = f \circ g $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ g \right)$ & $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ \\ %& & & & & \\
       \hline
     \end{tabularx}
-	\begin{minipage}[c][.6\textheight]{0.46 \linewidth}
+	\begin{minipage}[c][.585\textheight]{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 			    The \emph{Cartan calculus} involves the following three \emph{graded derivations} on $\Omega(M)$
@@ -74,7 +74,7 @@
 		\vfill
 	\end{minipage}
 	\hspace{1cm}
-	\begin{minipage}[c][.6\textheight]{0.46 \linewidth}
+	\begin{minipage}[c][.55\textheight]{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 				\begin{displaymath}
@@ -112,6 +112,7 @@
 		  }
 		}
 	\end{minipage}
+		\footnote[4]{$g:N \sim (y^A) \rightarrow M \sim (x^\mu) $}
  
 \newpage
 
@@ -130,7 +131,7 @@
       	$\iota_X$  & $0$ & $\iota_X \ExtD x^\mu = \ExtD x^\mu (X) = X^\mu$  & $0$  & $\left(\iota_X T_1\right) \otimes T_2 + T_1 \otimes \left(\iota_X T_2 \right)$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ \\
 %
       	\cdashline{4-5}
-      	$g^\ast$  & $g^\ast \left(f\right) = g \circ f $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ f \right)$ &$(g^{-1})_\ast \partial_\mu$ \quad  \footnotemark[3]  & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ \quad  \footnotemark[3]  & $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$\\ 
+      	$g^\ast$  \footnotemark[4]  & $g^\ast \left(f\right) = f \circ g $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ g \right)$ &$(g^{-1})_\ast \partial_\mu = \dfrac{\partial[g^{-1}]^A}{\partial x^\mu}\partial_A$ \quad  \footnotemark[3]  & $g^\ast \left( T_1\right) \otimes g^\ast \left( T_2\right)$ \quad  \footnotemark[3]  & $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$\\ 
       	\hdashline
       	%$\nabla_X$ & $\nabla_X f = X(f) $ & & & & \\
       	$\nabla_X$ & $\nabla_X f = X(f) = X^\nu \left(\dfrac{\partial f }{\partial x^\nu} \right)$ & $\nabla_X \ExtD x^\mu = X^\nu \left( - \Gamma^\mu_{\, \nu \, \alpha} \right) \ExtD x^\alpha$ & $\nabla_X \partial_\mu =X^\nu \Gamma^\alpha_{\, \nu \, \mu} \partial_\alpha$ & $\left(\nabla_X T_1\right) \otimes T_2 + T_1 \otimes \left(\nabla_X T_2 \right)$  & $\left( \nabla_X \omega \right) \wedge \beta + \omega \wedge \left(\nabla_X\beta \right)$\\%& & & & & \\
@@ -180,7 +181,7 @@
 	\end{minipage}
 	\hspace{1cm}
 	\setcounter{equation}{0}
-	\begin{minipage}[c][.5\textheight]{0.46 \linewidth}
+	\begin{minipage}[c][.485\textheight]{0.46 \linewidth}
 		The last one is not natural, it is an additional structure given to $M$:\\
 		\fbox{
 		  \parbox{\textwidth}{
@@ -219,6 +220,7 @@
 		  }
 		}	
 	\end{minipage}
+		\footnote[4]{$g:N \sim (y^A) \rightarrow M \sim (x^\mu) $}
 		\footnote[3]{Caveat: pull-back is well defined only on covariant tensors. Otherwise $g$ has to be a diffeomorphism.}
  
     

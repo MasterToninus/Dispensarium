@@ -19,7 +19,8 @@
 \usepackage[leqno]{amsmath}
 \usepackage{amsfonts}
 
-\renewcommand*{\thefootnote}{\alph{footnote}}
+\usepackage[symbol]{footmisc}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 
 \usepackage[tensors,diffgeo]{../Math-Symbols-List/toninus-math-symbols}
@@ -42,10 +43,10 @@
       	$\ExtD$ & $\ExtD f = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: \ExtD x^\nu$ & 0 & $\left( \ExtD \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \ExtD\beta \right) $ \\
       	$\Lie_X$ & $\Lie_X f = X(f) = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: X^\nu$ & $\Lie_X \ExtD x^\mu = \ExtD \left(X^a \partial_a x^\mu\right) =  \ExtD \left(X^a \delta_a^\mu \right) = \ExtD\left(X^\mu\right) = \left(\dfrac{\partial X^\mu}{\partial x^\nu}\right)\ExtD x^\nu$ & $\left( \Lie_X \omega \right) \wedge \beta + \omega \wedge \left(\Lie_X\beta \right)$ \\
       	$\iota_X$  & $0$ & $\iota_X \ExtD x^\mu = \ExtD x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ \\
-      	$g^\ast$  & $g^\ast \left(f\right) = g \circ f $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ f \right)$& $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ \\ %& & & & & \\
+      	$g^\ast$  \footnotemark[4]  & $g^\ast \left(f\right) = f \circ g $ & $ g^\ast \left(\ExtD x^\mu \right) = \ExtD\left(x^\mu \circ g \right)$ & $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ \\ %& & & & & \\
       \hline
     \end{tabularx}
-	\begin{minipage}[c][.6\textheight]{0.46 \linewidth}
+	\begin{minipage}[c][.585\textheight]{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 			    The \emph{Cartan calculus} consists of the following three \emph{graded derivations} on $\Omega(M)$
@@ -72,7 +73,7 @@
 		\vfill
 	\end{minipage}
 	\hspace{1cm}
-	\begin{minipage}[c][.6\textheight]{0.46 \linewidth}
+	\begin{minipage}[c][.55\textheight]{0.46 \linewidth}
 		\fbox{
 		  \parbox{\textwidth}{
 				\begin{displaymath}
@@ -110,6 +111,7 @@
 		  }
 		}
 	\end{minipage}
-    
+		\footnote[4]{$g:N \sim (y^A) \rightarrow M \sim (x^\mu) $}
+   
   \end{landscape}
 \end{document}
