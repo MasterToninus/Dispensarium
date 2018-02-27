@@ -1,0 +1,94 @@
+%% A tentative, eye-catchy, one-page definition of category (I would like to replicate the page frome my handwritten notes.
+\documentclass[preview]{standalone}
+
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage[italian,english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[basic,cat]{../Math-Symbols-List/toninus-math-symbols}
+\usepackage{../Latex-Theorem/theoremtemplate}
+\usepackage{./visualcat}
+
+\usepackage{tikz}
+\def\tria{
+	\tikz[baseline=.1ex]{
+		\fill (0,-0.5ex) coordinate (A);
+		\fill (0,2ex) coordinate (B);
+		\fill (2.25ex,0.75ex) coordinate (C);
+		\draw[green] (0.75ex,0.75ex) node {$\commute$};
+		\draw[blue] (A) -- (B);
+		\draw[green] (A) -- (C) -- (B);
+	}
+}
+
+\def\trib{
+	\tikz[baseline=.1ex]{
+		\fill (0,-0.5ex) coordinate (A);
+		\fill (0,2ex) coordinate (B);
+		\fill (2.25ex,0.75ex) coordinate (C);
+		\draw[blue] (0.75ex,0.75ex) node {$\commute$};
+		\draw[blue] (A) -- (B);
+		\draw[blue] (A) -- (C) -- (B);
+	}
+}
+
+\def\cotria{
+	\tikz[baseline=.1ex]{
+		\fill (0,-0.5ex) coordinate (A);
+		\fill (0,2ex) coordinate (B);
+		\fill (-2.25ex,0.75ex) coordinate (C);
+		\draw[green] (-0.75ex,0.75ex) node {$\commute$};
+		\draw[blue] (A) -- (B);
+		\draw[green] (A) -- (C) -- (B);
+	}
+}
+
+\def\cotrib{
+	\tikz[baseline=.1ex]{
+		\fill (0,-0.5ex) coordinate (A);
+		\fill (0,2ex) coordinate (B);
+		\fill (-2.25ex,0.75ex) coordinate (C);
+		\draw[blue] (-0.75ex,0.75ex) node {$\commute$};
+		\draw[blue] (A) -- (B);
+		\draw[blue] (A) -- (C) -- (B);
+	}
+}
+
+\begin{document} 
+% first column
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{definition}[Monomorphism (mono or monic arrow)]
+		\emph{"left cancellative arrow"}
+		$\textcolor{red}{\bulk} s.t. \textcolor{blue}{\forall \bulk} \quad \tria \Rightarrow \trib$
+		
+		\begin{tikzcd}
+			 \textcolor{blue}{B} \ar[dd,blue,equal] \ar[dr,blue,"g_1"] \arrow[rrd, bend left=30, "fg_1",green] & & \\
+			\phantom. & \textcolor{red}{C}  \ar[r,red,"f",tail]& \textcolor{red}{D}  \\
+			\textcolor{blue}{B}  \ar[ur,blue,"g_2"] \arrow[rru, bend right=30, "fg_2",green]& & 
+		\end{tikzcd}
+		\footnote{$(f g_1 = f g_2 ) \Rightarrow ( g_1 = g_2 )$}
+	\end{definition}
+ 
+\end{minipage}
+%second column
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{definition}[Epimorphism (epi or epic arrow)]
+		\emph{"right cancellative arrow"}
+		$\textcolor{red}{\bulk} s.t. \textcolor{blue}{\forall \bulk} \quad \cotria \Rightarrow \cotrib$
+		
+		\begin{tikzcd}
+			& & \textcolor{blue}{E} \ar[dd,blue,equal] \\
+			\textcolor{red}{C} \ar[r,red,"f",tail] \arrow[rru, bend left=30, "h_1 f",green] \arrow[rrd, bend right=30, "h_2 f",green]& \textcolor{red}{D} \ar[ur,blue,"h_1"] \ar[dr,blue,"h_2"] & \\
+			& & \textcolor{blue}{E}
+		\end{tikzcd}
+		\footnote{$(h_1 f = h_2 f ) \Rightarrow ( h_1 = h_2 )$}
+	\end{definition}
+\end{minipage}
+
+
+
+
+
+
+\end{document}
