@@ -1,0 +1,111 @@
+%% A tentative, eye-catchy, one-page definition of category (I would like to replicate the page frome my handwritten notes.
+\documentclass[preview]{standalone}
+
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage[italian,english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[basic,cat]{../Math-Symbols-List/toninus-math-symbols}
+\usepackage{../Latex-Theorem/theoremtemplate}
+\usepackage{./visualcat}
+
+\begin{document}
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+
+
+
+Let's begin from the dry abstract nonsense:
+\begin{definition}[Diagram on $\cat$]
+	Functor $D: \cat[I] \rightarrow \cat$ from a small category $\cat[I]$ to $\cat[C]$.
+\end{definition}
+Basically it is  a graph composed of objects and arrows in $\cat$.
+
+% first column
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{definition}[Cone over diagram $D$]
+		\begin{displaymath}
+		 (
+		 \tikz[baseline]{
+		 			\node[fill=blue!20,anchor=base] (t1)
+		            {$ V$};
+		        } 
+			,
+			 \tikz[baseline]{
+		            \node[fill=blue!20,anchor=base] (t2)
+		            {$ \{\nu_i:V \rightarrow D_i\}_{i\in \cat[I]} $};
+			}
+		)
+		\end{displaymath}
+		\tikzstyle{na} = [baseline=-.5ex]
+		\begin{itemize}
+		    \item \tikz[na] \node[coordinate] (n1) {};
+		    	Object $\in \cat$
+		    \item Family of morphisms of $\cat$
+		        \tikz[na]\node [coordinate] (n2) {};
+		\end{itemize}
+		
+		% Now it's time to draw some edges between the global nodes. Note that we
+		% have to apply the 'overlay' style.
+		\begin{tikzpicture}[overlay]
+		        \path[->] (n1) edge [bend left] (t1);
+		        \path[->] (n2) edge [bend right] (t2);
+		        %\path[->] (n3) edge [out=0, in=-90] (t3);
+		\end{tikzpicture}
+
+
+
+	\end{definition}
+
+
+
+\end{minipage}
+\vrule{}
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{definition}[CoCone over diagram $D$]
+		\begin{displaymath}
+		 (
+		 \tikz[baseline]{
+		 			\node[fill=blue!20,anchor=base] (t1)
+		            {$ W$};
+		        } 
+			,
+			 \tikz[baseline]{
+		            \node[fill=blue!20,anchor=base] (t2)
+		            {$ \{\omega_i:D_i \rightarrow W\}_{i\in \cat[I]} $};
+			}
+		)
+		\end{displaymath}
+		\tikzstyle{na} = [baseline=-.5ex]
+		\begin{itemize}
+		    \item \tikz[na] \node[coordinate] (n1) {};
+		    	Object $\in \cat$
+		    \item Family of morphisms of $\cat$
+		        \tikz[na]\node [coordinate] (n2) {};
+		\end{itemize}
+		
+		% Now it's time to draw some edges between the global nodes. Note that we
+		% have to apply the 'overlay' style.
+		\begin{tikzpicture}[overlay]
+		        \path[->] (n1) edge [bend left] (t1);
+		        \path[->] (n2) edge [bend right] (t2);
+		        %\path[->] (n3) edge [out=0, in=-90] (t3);
+		\end{tikzpicture}
+
+
+
+	\end{definition}
+
+
+
+\end{minipage}
+
+
+\end{document}
