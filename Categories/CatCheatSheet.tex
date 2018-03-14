@@ -20,6 +20,8 @@
 
 \usepackage[toc,page]{appendix}
 
+\usepackage{epigraph} %funny quotes
+
 
 %%__________________________________
 %% To transform in a package.
@@ -67,6 +69,9 @@
 
 
 \begin{appendices}
+\epigraph{Category theory starts with the observation that many properties of mathematical systems can be unified and simplified by a presentation with diagrams and arrows.}{Saunders Mac Lane}
+\epigraph{Poetry says more with less words.\\
+Mathematics too.}{Gabriele Lolli}
 
 %------------------------------------------------------------------------------------BASIC ---------------------------------
 \section{Basic definitions}
@@ -91,11 +96,13 @@ Words like "set" and "function" are reserved to objects and morhpisms in the set
 \section{Limits}
 	\input{limitdef}
 
+	\input{limitbestiary}
 
 
-\section{Classification of Morphism}
+\section{Classification of Morphisms}
 	In any $\cat$ there is a basic classification of morphisms $f: C \rightarrow D$.\\
 	
+
 	\input{basicmorphismclassification}
 
 \section{Subobjects}
