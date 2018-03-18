@@ -15,8 +15,82 @@
 
 
 \begin{document}
-\begin{landscape}
-	The best way to grasp the meaning (...) to understand what is a limit it is through examples. The model category is $\cat[Set]$ which turn out to be complete and co-complete.
-  
-\end{landscape}
+The best way to grasp the meaning (...) to understand what is a limit it is through examples. The model category is $\cat[Set]$ which turn out to be complete and co-complete.
+
+\begin{definition}[Terminal Object]
+	\begin{tikzcd}
+		\textcolor{blue}{X} \ar[d,green] \\
+		\textcolor{red}{T} 
+	\end{tikzcd}
+\end{definition}
+%
+\begin{definition}[Initial Object]
+	\begin{tikzcd}
+		\textcolor{red}{I} \ar[d,green] \\
+		\textcolor{blue}{X} 
+	\end{tikzcd}
+\end{definition}
+%
+\begin{definition}[Product]
+	\begin{tikzcd}
+		&\textcolor{blue}{C} \ar[ddl, bend right, blue] \ar[ddr, bend left, blue] \ar[d,green] 
+		\ar[ddl,phantom,green, "\commute"] \ar[ddr,phantom,green, "\commute"]& \\
+		&\textcolor{red}{A \times B} \ar[dl,red] \ar[dr,red]& \\
+		A & & B \\
+	\end{tikzcd}
+\end{definition}
+%
+\begin{definition}[Co-Product]
+	\begin{tikzcd}
+		A \ar[dr,red] \ar[ddr, bend right, blue] & & B\ar[dl,red] \ar[ddl, bend left, blue]\\
+		&\textcolor{red}{A \times B}  \ar[d,green] & \\
+		&\textcolor{blue}{C} \ar[uul,phantom,green, "\commute"] \ar[uur,phantom,green, "\commute"]& 
+	\end{tikzcd}
+\end{definition}
+%
+\begin{definition}[Equalizer]
+
+\end{definition}
+%
+\begin{definition}[Co-Equalizer]
+
+\end{definition}
+%
+\begin{definition}[Pull-Back]
+
+\end{definition}
+%
+\begin{definition}[Push-Out]
+
+\end{definition}
+%
+So, a limit is a concept pertaing to a specific configuration of objects and arrows (the image of the diagram $D$ in $\cat$).
+\\
+We reserve a special name for categories such that limit exists for all diagram of a certain shape regardless of the specificity of vertex and arrows (i.e. depending only on the shape of the diagrams).
+%
+\begin{notation}
+	\begin{displaymath}
+		D: \cat[I] \rightarrow	\cat
+	\end{displaymath}
+	A diagram is \emph{finite} if $\Obj(\cat[I])$ is a discrete set.
+	\\
+	Limits on a finite diagram are called \emph{finite limits}.
+\end{notation}
+%
+\begin{definition}[(finitely) (Co-)Complete Category]
+	$\cat$ \St all (finite) (Co-)Limit exists.
+\end{definition}
+%
+\begin{proposition}
+T.f.s.a.e.:
+\begin{itemize}
+	\item $\cat$ has all (finite) limits / (finite) colimits
+	\item $\cat$ has all (finite) products and equalizers / (finite) co-products and co-equalizers
+	\item $cat$ has all (binary) pullbacks and terminal object / (binary) pushout and initial object
+\end{itemize}
+
+\end{proposition}
+
+
+
 \end{document}
