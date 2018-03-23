@@ -41,9 +41,9 @@
 		\fill (0,2ex) coordinate (B);
 		\fill (-2.25ex,0.75ex) coordinate (C);
 		\draw[orange] (-0.75ex,0.75ex) node {$\commute$};
-		\draw[red] (A) -- (B);
-		\draw[blue] (B) -- (C) ;
-		\draw[green] (C) -- (A) ;
+		\draw[orange] (A) -- (B);
+		\draw[red] (B) -- (C) ;
+		\draw[blue] (C) -- (A) ;
 	}
 }
 
@@ -168,12 +168,12 @@ Basically it is  a graph composed of objects and arrows in $\cat$.
 \begin{minipage}[t]{0.5\textwidth}
 	\begin{definition}[Limit of diagram $D$]
 		It is an Universal cone over $D$.
-		$$\textcolor{blue}{cone \bulk} s.t. \textcolor{green}{\forall cone \bulk} \quad \exists! \textcolor{red}{\bulk} \St \TriLimit$$	
+		$$\textcolor{red}{cone \bulk} s.t. \textcolor{blue}{\forall cone \bulk} \quad \textcolor{orange}{\exists! \bulk} \St \TriLimit$$	
 		\begin{tikzcd}[row sep= small]
 		i \ar[dd,"f"] & & D_i  \ar[dd,"D(f)"']& \\
-		 & & \phantom. \ar[r,phantom,blue,"\commute"] \ar[rdd,phantom,green,"\commute"]& \textcolor{blue}{V} \ar[lu,blue] \ar[ld,blue] \\
+		 & & \phantom. \ar[r,phantom,red,"\commute"] \ar[rdd,phantom,blue,"\commute"]& \textcolor{red}{V} \ar[lu,red] \ar[ld,red] \\
 		j & & D_j & \phantom. \ar[l,phantom,near start, orange,"\commute"]\\
-		& & & \textcolor{green}{V'} \ar[uuul,green] \ar[ul,green] \ar[uu,red,"\exists!"']
+		& & & \textcolor{blue}{V'} \ar[uuul,blue] \ar[ul,blue] \ar[uu,orange,"\exists!"']
 		\end{tikzcd}		
 		
 	\end{definition}
@@ -182,12 +182,12 @@ Basically it is  a graph composed of objects and arrows in $\cat$.
 \begin{minipage}[t]{0.5\textwidth}
 	\begin{definition}[Co-Limit of diagram $D$]
 		It is an Universal co-cone over $D$.
-		$$\textcolor{blue}{cocone \bulk} s.t. \textcolor{green}{\forall cocone \bulk} \quad \exists! \textcolor{red}{\bulk} \St \TriLimit$$	
+		$$\textcolor{red}{cocone \bulk} s.t. \textcolor{blue}{\forall cone \bulk} \quad \textcolor{orange}{\exists! \bulk} \St \TriLimit$$	
 		\begin{tikzcd}[row sep= small]
-		i \ar[dd,"f"] & & D_i \ar[rd,blue] \ar[rddd,green] \ar[dd,"D(f)"']& \\
-		 & & \phantom. \ar[r,phantom,blue,"\commute"] \ar[rdd,phantom,green,"\commute"] & \textcolor{blue}{W} \ar[dd,red,"\exists!"] \\
-		j & & D_j \ar[ru,blue]  \ar[rd,green]& \\
-		& & & \textcolor{green}{W'}
+		i \ar[dd,"f"] & & D_i \ar[rd,red] \ar[rddd,blue] \ar[dd,"D(f)"']& \\
+		 & & \phantom. \ar[r,phantom,red,"\commute"] \ar[rdd,phantom,blue,"\commute"] & \textcolor{red}{W} \ar[dd,orange,"\exists!"] \\
+		j & & D_j \ar[ru,red]  \ar[rd,blue]& \phantom. \ar[l,phantom,near start, orange,"\commute"]\\
+		& & & \textcolor{blue}{W'}
 		\end{tikzcd}	
 
 	\end{definition}

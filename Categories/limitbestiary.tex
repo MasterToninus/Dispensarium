@@ -49,19 +49,40 @@ The best way to grasp the meaning (...) to understand what is a limit it is thro
 \end{definition}
 %
 \begin{definition}[Equalizer]
-
+	\begin{tikzcd}
+		 & & B \ar[dd,equal] \\
+		\textcolor{red} E \ar[r,red,"e"] \ar[rru,red, bend left] \ar[rrd,red, bend right] \ar[rrd,phantom,red, "\commute"] \ar[rru,phantom,red, "\commute"]& 
+		A \ar[ur,"f"] \ar[dr,"g"'] \ar[r,phantom, "\commute"]& \phantom. \\
+		 & & B 
+	\end{tikzcd}
 \end{definition}
 %
 \begin{definition}[Co-Equalizer]
-
+	\begin{tikzcd}
+		A   \ar[dd,equal] \ar[rd,"f"] \ar[rrd,red, bend left] \ar[rrd,phantom,red, "\commute"]& & \\
+		\phantom. \ar[r,phantom, "\commute"] & B \ar[r,red,"q"] & \textcolor{red} Q \\
+		B \ar[ru,"g"'] \ar[rru,red, bend right] \ar[rru,phantom,red, "\commute"]& & \\
+	\end{tikzcd}
 \end{definition}
 %
 \begin{definition}[Pull-Back]
-
+	\begin{tikzcd}
+		\textcolor{green} U \ar[rd,orange,"!"]  \ar[rdd,green,bend right] \ar[rrd,green,bend left]& & \\
+		& \textcolor{red} S \ar[rd,red,phantom,"\commute"] \ar[r,red] \ar[d,red]  \arrow[dr, phantom, "\ulcorner", very near start]
+& A \ar[d] \\
+		& B \ar[r] & C
+	\end{tikzcd}
 \end{definition}
 %
 \begin{definition}[Push-Out]
-
+	\begin{tikzcd}
+		C \ar[r] \ar[d] \ar[rd,red,phantom,"\commute"]& A \ar[d,red] \ar[rdd,green,bend left]& \\
+		B  \ar[r,red] \ar[rrd,green,bend right] & \textcolor{red}O \arrow[ul, phantom, "\ulcorner", very near start] \ar[rd,orange,"!"] & \\
+		& & \textcolor{green} U		
+	%	 U   \ar[rdd,green,bend right] \ar[rrd,green,bend left]& & \\
+	%	& } S  \arrow[dr, phantom, "\ulcorner", very near start] & A \ar[d] \\
+	%	& B \ar[r] & C
+	\end{tikzcd}
 \end{definition}
 %
 So, a limit is a concept pertaing to a specific configuration of objects and arrows (the image of the diagram $D$ in $\cat$).
