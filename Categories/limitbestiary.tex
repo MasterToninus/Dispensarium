@@ -16,7 +16,43 @@
 
 \begin{document}
 \begin{landscape}
-	The best way to grasp the meaning (...) to understand what is a limit it is through examples. The model category is $\cat[Set]$ which turn out to be complete and co-complete.
+
+
+
+% first column
+\begin{minipage}[t]{0.25\textwidth}
+	\begin{definition}[Terminal Object]
+		Is a limit on the empty diagram.\\
+		$\textcolor{red}{T\in \Obj(\cat)} \St 
+		\textcolor{blue}{\forall X \in \Obj	(\cat)}
+		\textcolor{green}{\exists! X\rightarrow T}$\\
+		\begin{tikzcd}%[row sep= small]
+			\textcolor{red}{T} \\
+		i \ar[dd,"f"] & & D_i  \ar[dd,"D(f)"']& \\
+		 & & \phantom. \ar[r,phantom,blue,"\commute"] \ar[rdd,phantom,green,"\commute"]& \textcolor{blue}{V} \ar[lu,blue] \ar[ld,blue] \\
+		j & & D_j & \phantom. \ar[l,phantom,near start, orange,"\commute"]\\
+		& & & \textcolor{green}{V'} \ar[uuul,green] \ar[ul,green] \ar[uu,red,"\exists!"']
+		\end{tikzcd}		
+		
+	\end{definition}
+\end{minipage}
+%
+\begin{minipage}[t]{0.25\textwidth}
+T
+\end{minipage}
+\vline
+\vspace{1em}
+\vline
+\begin{minipage}[t]{0.25\textwidth}
+	\begin{definition}[Initial Object]
+	
+	\end{definition}
+\end{minipage}
+%
+\begin{minipage}[t]{0.25\textwidth}
+T
+\end{minipage}
+  
   
 \end{landscape}
 \end{document}
